@@ -20,6 +20,11 @@
 		356DD27C1BFDC1EF00C0294B /* ALNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 356DD27B1BFDC1EF00C0294B /* ALNavigationViewController.m */; };
 		356DD27F1BFDC39E00C0294B /* ALDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 356DD27E1BFDC39E00C0294B /* ALDiscoverViewController.m */; };
 		356DD2821BFDC40D00C0294B /* ALSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 356DD2811BFDC40D00C0294B /* ALSearchBar.m */; };
+		356DD2851BFDD56C00C0294B /* ALCover.m in Sources */ = {isa = PBXBuildFile; fileRef = 356DD2841BFDD56C00C0294B /* ALCover.m */; };
+		356DD2891BFE083600C0294B /* ALOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 356DD2881BFE083600C0294B /* ALOneViewController.m */; };
+		356DD28C1BFE0A6000C0294B /* ALTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 356DD28B1BFE0A6000C0294B /* ALTitleButton.m */; };
+		356DD28F1BFE0E5600C0294B /* UIBarButtonItem+Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 356DD28E1BFE0E5600C0294B /* UIBarButtonItem+Item.m */; };
+		356DD2921BFE1A0500C0294B /* ALPopMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 356DD2911BFE1A0500C0294B /* ALPopMenu.m */; };
 		35715E791BFCB78F0051914A /* ALTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 35715E781BFCB78F0051914A /* ALTabBarButton.m */; };
 		35715E7C1BFCB7E40051914A /* ALBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35715E7B1BFCB7E40051914A /* ALBadgeView.m */; };
 		35715E7F1BFCBB070051914A /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 35715E7E1BFCBB070051914A /* UIView+Frame.m */; };
@@ -70,6 +75,17 @@
 		356DD27E1BFDC39E00C0294B /* ALDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALDiscoverViewController.m; sourceTree = "<group>"; };
 		356DD2801BFDC40D00C0294B /* ALSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALSearchBar.h; sourceTree = "<group>"; };
 		356DD2811BFDC40D00C0294B /* ALSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALSearchBar.m; sourceTree = "<group>"; };
+		356DD2831BFDD56C00C0294B /* ALCover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALCover.h; sourceTree = "<group>"; };
+		356DD2841BFDD56C00C0294B /* ALCover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALCover.m; sourceTree = "<group>"; };
+		356DD2861BFDD9BF00C0294B /* ArcBlog.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArcBlog.pch; sourceTree = "<group>"; };
+		356DD2871BFE083600C0294B /* ALOneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALOneViewController.h; sourceTree = "<group>"; };
+		356DD2881BFE083600C0294B /* ALOneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALOneViewController.m; sourceTree = "<group>"; };
+		356DD28A1BFE0A6000C0294B /* ALTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTitleButton.h; sourceTree = "<group>"; };
+		356DD28B1BFE0A6000C0294B /* ALTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALTitleButton.m; sourceTree = "<group>"; };
+		356DD28D1BFE0E5600C0294B /* UIBarButtonItem+Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Item.h"; sourceTree = "<group>"; };
+		356DD28E1BFE0E5600C0294B /* UIBarButtonItem+Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Item.m"; sourceTree = "<group>"; };
+		356DD2901BFE1A0500C0294B /* ALPopMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPopMenu.h; sourceTree = "<group>"; };
+		356DD2911BFE1A0500C0294B /* ALPopMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPopMenu.m; sourceTree = "<group>"; };
 		35715E771BFCB78F0051914A /* ALTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTabBarButton.h; sourceTree = "<group>"; };
 		35715E781BFCB78F0051914A /* ALTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALTabBarButton.m; sourceTree = "<group>"; };
 		35715E7A1BFCB7E40051914A /* ALBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALBadgeView.h; sourceTree = "<group>"; };
@@ -226,6 +242,8 @@
 			children = (
 				35715E801BFCCA360051914A /* ALHomeViewController.h */,
 				35715E811BFCCA360051914A /* ALHomeViewController.m */,
+				356DD2871BFE083600C0294B /* ALOneViewController.h */,
+				356DD2881BFE083600C0294B /* ALOneViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -240,6 +258,12 @@
 		35390F181BFC46B6006584F8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				356DD2831BFDD56C00C0294B /* ALCover.h */,
+				356DD2841BFDD56C00C0294B /* ALCover.m */,
+				356DD28A1BFE0A6000C0294B /* ALTitleButton.h */,
+				356DD28B1BFE0A6000C0294B /* ALTitleButton.m */,
+				356DD2901BFE1A0500C0294B /* ALPopMenu.h */,
+				356DD2911BFE1A0500C0294B /* ALPopMenu.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -323,6 +347,7 @@
 				35390F271BFC46B6006584F8 /* AppDelegate.m */,
 				35390F281BFC46B6006584F8 /* Category */,
 				35390F2B1BFC46B6006584F8 /* main.m */,
+				356DD2861BFDD9BF00C0294B /* ArcBlog.pch */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -334,6 +359,8 @@
 				35390F2A1BFC46B6006584F8 /* UIImage+Image.m */,
 				35715E7D1BFCBB070051914A /* UIView+Frame.h */,
 				35715E7E1BFCBB070051914A /* UIView+Frame.m */,
+				356DD28D1BFE0E5600C0294B /* UIBarButtonItem+Item.h */,
+				356DD28E1BFE0E5600C0294B /* UIBarButtonItem+Item.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -504,16 +531,21 @@
 			files = (
 				356DD27F1BFDC39E00C0294B /* ALDiscoverViewController.m in Sources */,
 				35390F321BFC46B6006584F8 /* AppDelegate.m in Sources */,
+				356DD2891BFE083600C0294B /* ALOneViewController.m in Sources */,
 				35390F311BFC46B6006584F8 /* ALTabBar.m in Sources */,
 				35715E821BFCCA360051914A /* ALHomeViewController.m in Sources */,
+				356DD28C1BFE0A6000C0294B /* ALTitleButton.m in Sources */,
 				35390F331BFC46B6006584F8 /* UIImage+Image.m in Sources */,
 				35715E7F1BFCBB070051914A /* UIView+Frame.m in Sources */,
 				35715E7C1BFCB7E40051914A /* ALBadgeView.m in Sources */,
+				356DD28F1BFE0E5600C0294B /* UIBarButtonItem+Item.m in Sources */,
 				35390F301BFC46B6006584F8 /* ALTabBarController.m in Sources */,
+				356DD2921BFE1A0500C0294B /* ALPopMenu.m in Sources */,
 				35715E791BFCB78F0051914A /* ALTabBarButton.m in Sources */,
 				356DD27C1BFDC1EF00C0294B /* ALNavigationViewController.m in Sources */,
 				35390F341BFC46B6006584F8 /* main.m in Sources */,
 				352A3ECA1BFA2C370013ED3F /* ArcBlog.xcdatamodeld in Sources */,
+				356DD2851BFDD56C00C0294B /* ALCover.m in Sources */,
 				356DD2821BFDC40D00C0294B /* ALSearchBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -648,6 +680,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ArcBlog/Classes/Other/ArcBlog.pch;
 				INFOPLIST_FILE = ArcBlog/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -661,6 +695,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ArcBlog/Classes/Other/ArcBlog.pch;
 				INFOPLIST_FILE = ArcBlog/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

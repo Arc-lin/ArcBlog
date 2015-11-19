@@ -7,11 +7,10 @@
 //
 
 #import "ALTabBarController.h"
-#import "UIImage+Image.h"
 #import "ALTabBar.h"
 #import "ALNavigationViewController.h"
 #import "ALHomeViewController.h"
-
+#import "ALDiscoverViewController.h"
 @interface ALTabBarController ()<ALTabBarDelegate>
 
 @property (nonatomic,strong) NSMutableArray *items;
@@ -112,10 +111,9 @@
 #pragma mark - 添加所有的子控制器
 - (void)setUpAllChildViewController{
     // 首页
-    UIViewController *home = [[UIViewController alloc] init];
-    home.view.backgroundColor = [UIColor yellowColor];
+    ALHomeViewController *home = [[ALHomeViewController alloc] init];
     [self setUpOneChildViewController:home image:[UIImage imageNamed:@"tabbar_home"] selectedImage:[UIImage imageWithOriginalName:@"tabbar_home_selected"] title:@"首页"];
-    
+    _home = home;
     
     // 消息
     UIViewController *message = [[UIViewController alloc] init];
@@ -123,18 +121,16 @@
     [self setUpOneChildViewController:message image:[UIImage imageNamed:@"tabbar_message_center"] selectedImage:[UIImage imageWithOriginalName:@"tabbar_message_center_selected"] title:@"消息"];
     
     // 发现
-    UIViewController *discover = [[UIViewController alloc] init];
+    ALDiscoverViewController *discover = [[ALDiscoverViewController alloc] init];
     discover.view.backgroundColor = [UIColor purpleColor];
     [self setUpOneChildViewController:discover image:[UIImage imageNamed:@"tabbar_discover"] selectedImage:[UIImage imageWithOriginalName:@"tabbar_discover_selected"] title:@"发现"];
     
-    [self addChildViewController:discover];
     
     // 我
     UIViewController *profile = [[UIViewController alloc] init];
     profile.view.backgroundColor = [UIColor grayColor];
     [self setUpOneChildViewController:profile image:[UIImage imageNamed:@"tabbar_profile"] selectedImage:[UIImage imageWithOriginalName:@"tabbar_profile_selected"] title:@"我"];
     
-    [self addChildViewController:profile];
 }
 #pragma mark - 添加一个子控件
 - (void)setUpOneChildViewController:(UIViewController *)vc image:(UIImage *)image selectedImage:(UIImage *)selectedImage title:(NSString *)title{

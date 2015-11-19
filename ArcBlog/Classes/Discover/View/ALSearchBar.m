@@ -7,8 +7,7 @@
 //
 
 #import "ALSearchBar.h"
-#import "UIImage+Image.h"
-#import "UIView+Frame.h"
+
 @implementation ALSearchBar
 
 - (instancetype)initWithFrame:(CGRect)frame
