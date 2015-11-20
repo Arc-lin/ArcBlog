@@ -27,6 +27,7 @@
 // 懒加载badgeView
 - (ALBadgeView *)badgeView{
     if (_badgeView == nil) {
+        
         ALBadgeView *btn = [ALBadgeView buttonWithType:UIButtonTypeCustom];
         
         [self addSubview:btn];

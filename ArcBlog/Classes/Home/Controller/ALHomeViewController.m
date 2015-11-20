@@ -63,7 +63,7 @@
     [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateSelected];
     
     // 高亮的时候不需要调整图片
-    titleButton.adjustsImageWhenHighlighted = NO;
+    titleButton.adjustsImageWhenHighlighted = YES;
     
     [titleButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -108,7 +108,7 @@
 - (void)pop
 {
     //    [_titleButton setTitle:@"首页首页" forState:UIControlStateNormal];
-    [_titleButton setImage:nil forState:UIControlStateNormal];
+        [_titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
     //    [_titleButton sizeToFit];
 }
 /*

@@ -22,7 +22,6 @@ int main(int argc, char * argv[]) {
 //    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 //    // instantiateInitialViewController：默认加载箭头指向的控制器
 //     [storyboard instantiateInitialViewController];
-    
     @autoreleasepool {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }

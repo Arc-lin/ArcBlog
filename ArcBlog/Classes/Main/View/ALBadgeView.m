@@ -7,7 +7,6 @@
 //
 
 #import "ALBadgeView.h"
-#import "UIView+Frame.h"
 
 #define  ALBadgeViewFont [UIFont systemFontOfSize:11]
 
@@ -43,7 +42,7 @@
     NSMutableDictionary *attr = [NSMutableDictionary dictionary];
     attr[NSFontAttributeName] = ALBadgeViewFont;
     CGSize size = [badgeValue sizeWithAttributes:attr];
-    NSLog(@"%f --- %f",size.width,self.width);
+    //NSLog(@"%f --- %f",size.width,self.width);
     
     if (size.width > self.width) { // 文字的尺寸大于控件的宽度
         [self setImage:[UIImage imageNamed:@"new_dot"] forState:UIControlStateNormal];

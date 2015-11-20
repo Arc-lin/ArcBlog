@@ -29,6 +29,8 @@
 		35715E7C1BFCB7E40051914A /* ALBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35715E7B1BFCB7E40051914A /* ALBadgeView.m */; };
 		35715E7F1BFCBB070051914A /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 35715E7E1BFCBB070051914A /* UIView+Frame.m */; };
 		35715E821BFCCA360051914A /* ALHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35715E811BFCCA360051914A /* ALHomeViewController.m */; };
+		35C79C861BFF035F00C7A8E7 /* ALMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C79C851BFF035F00C7A8E7 /* ALMessageViewController.m */; };
+		35C79C891BFF065600C7A8E7 /* ALProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C79C881BFF065600C7A8E7 /* ALProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +96,10 @@
 		35715E7E1BFCBB070051914A /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		35715E801BFCCA360051914A /* ALHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALHomeViewController.h; sourceTree = "<group>"; };
 		35715E811BFCCA360051914A /* ALHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALHomeViewController.m; sourceTree = "<group>"; };
+		35C79C841BFF035F00C7A8E7 /* ALMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALMessageViewController.h; sourceTree = "<group>"; };
+		35C79C851BFF035F00C7A8E7 /* ALMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALMessageViewController.m; sourceTree = "<group>"; };
+		35C79C871BFF065600C7A8E7 /* ALProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALProfileViewController.h; sourceTree = "<group>"; };
+		35C79C881BFF065600C7A8E7 /* ALProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,6 +328,8 @@
 		35390F221BFC46B6006584F8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				35C79C841BFF035F00C7A8E7 /* ALMessageViewController.h */,
+				35C79C851BFF035F00C7A8E7 /* ALMessageViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -378,6 +386,8 @@
 		35390F2D1BFC46B6006584F8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				35C79C871BFF065600C7A8E7 /* ALProfileViewController.h */,
+				35C79C881BFF065600C7A8E7 /* ALProfileViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -534,9 +544,11 @@
 				356DD2891BFE083600C0294B /* ALOneViewController.m in Sources */,
 				35390F311BFC46B6006584F8 /* ALTabBar.m in Sources */,
 				35715E821BFCCA360051914A /* ALHomeViewController.m in Sources */,
+				35C79C891BFF065600C7A8E7 /* ALProfileViewController.m in Sources */,
 				356DD28C1BFE0A6000C0294B /* ALTitleButton.m in Sources */,
 				35390F331BFC46B6006584F8 /* UIImage+Image.m in Sources */,
 				35715E7F1BFCBB070051914A /* UIView+Frame.m in Sources */,
+				35C79C861BFF035F00C7A8E7 /* ALMessageViewController.m in Sources */,
 				35715E7C1BFCB7E40051914A /* ALBadgeView.m in Sources */,
 				356DD28F1BFE0E5600C0294B /* UIBarButtonItem+Item.m in Sources */,
 				35390F301BFC46B6006584F8 /* ALTabBarController.m in Sources */,

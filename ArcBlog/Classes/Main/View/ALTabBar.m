@@ -93,6 +93,7 @@
 // self.items UITabBarItem模型，有多少个子控制器就有多少个UITabBarItem模型
 // 调整子控件的位置
 - (void)layoutSubviews{
+    
     [super layoutSubviews];
     
     CGFloat w = self.bounds.size.width;
