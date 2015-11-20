@@ -14,7 +14,9 @@
 @implementation ALBadgeView
 
 - (instancetype)initWithFrame:(CGRect)frame{
+    
     if (self = [super initWithFrame:frame]) {
+        
         self.userInteractionEnabled = NO;
         [self setBackgroundImage:[UIImage imageNamed:@"main_badge"] forState:UIControlStateNormal];
         // 设置字体大小

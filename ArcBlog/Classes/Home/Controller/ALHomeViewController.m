@@ -13,7 +13,7 @@
 #import "ALTitleButton.h"
 #import "ALCover.h"
 #import "ALPopMenu.h"
-@interface ALHomeViewController ()
+@interface ALHomeViewController ()<ALCoverDelegate>
 
 @property (nonatomic,weak) ALTitleButton *titleButton;
 
