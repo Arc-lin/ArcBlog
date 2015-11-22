@@ -7,6 +7,7 @@
 //
 
 #import "ALOneViewController.h"
+#import "ALTwoViewController.h"
 
 @interface ALOneViewController ()
 
@@ -14,33 +15,23 @@
 
 @implementation ALOneViewController
 
+//init 底层调用initWithNibName
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
+
+    //ALLog(@"init 实现就是调用这个方法 ： %s",__func__);
+    return [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+}
+
+- (IBAction)jump2two:(id)sender {
+    ALTwoViewController *two = [[ALTwoViewController alloc] init];
+    [self.navigationController pushViewController:two animated:YES];
+}
+
 - (void)viewDidLoad {
-    [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
     
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-
-    static NSString *ID = @"cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    
-    if (cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-        
-        cell.backgroundColor = [UIColor clearColor];
-    }
-    
-    cell.textLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row];
-    
-    return cell;
-}
 
 @end

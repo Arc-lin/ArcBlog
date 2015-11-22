@@ -8,7 +8,7 @@
 
 #import "ALTabBarController.h"
 #import "ALTabBar.h"
-#import "ALNavigationViewController.h"
+#import "ALNavigationController.h"
 #import "ALHomeViewController.h"
 #import "ALDiscoverViewController.h"
 #import "ALMessageViewController.h"
@@ -80,7 +80,7 @@
 - (void)setUpTabBar{
 
     //自定义tabBar
-    ALTabBar *tabBar = [[ALTabBar alloc] initWithFrame:self.tabBar.frame];
+    ALTabBar *tabBar = [[ALTabBar alloc] initWithFrame:self.tabBar.bounds];
     tabBar.backgroundColor = [UIColor whiteColor];
     
     // 设置代理
@@ -89,11 +89,9 @@
     // 给tabBar传递tabBarItem模型
     tabBar.items = self.items;
 
-    // 添加自定义tabBar
-    [self.view addSubview:tabBar];
+    // 在系统自带的tabBar上添加自定义tabBar
+    [self.tabBar addSubview:tabBar];
     
-    // 移除系统的tabBar
-    [self.tabBar removeFromSuperview];
 }
 
 #pragma mark - 当点击tabBar上的按钮调用
@@ -105,6 +103,14 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
+    
+    // 移除系统的tabBarButton
+    for (UIView *tabBarButton in self.tabBar.subviews) {
+        if ([tabBarButton isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
+            [tabBarButton removeFromSuperview];
+        }
+    }
 }
 // Item: 就是苹果的模型命名规范
 // tabBarItem: 决定着tabBars上按钮的内容
@@ -136,7 +142,7 @@
 }
 #pragma mark - 添加一个子控件
 - (void)setUpOneChildViewController:(UIViewController *)vc image:(UIImage *)image selectedImage:(UIImage *)selectedImage title:(NSString *)title{
-
+    
     vc.title = title;
     vc.tabBarItem.image = image;
     vc.tabBarItem.selectedImage = selectedImage;
@@ -144,7 +150,9 @@
     //保存tabBarItem模型到数组
     [self.items addObject:vc.tabBarItem];
     
-    ALNavigationViewController *nav = [[ALNavigationViewController alloc] initWithRootViewController:vc];
+    // initWithRootViewController底层会调用导航控制器的push，把根控制器压入栈
+    ALNavigationController *nav = [[ALNavigationController alloc] initWithRootViewController:vc];
+    
     [self addChildViewController:nav];
 }
 @end

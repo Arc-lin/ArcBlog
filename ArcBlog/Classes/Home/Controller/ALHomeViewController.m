@@ -56,6 +56,7 @@
     
    // titleView
     ALTitleButton *titleButton = [ALTitleButton buttonWithType:UIButtonTypeCustom];
+    
     _titleButton = titleButton;
     
     [titleButton setTitle:@"首页" forState:UIControlStateNormal];
@@ -107,9 +108,19 @@
 }
 - (void)pop
 {
-    //    [_titleButton setTitle:@"首页首页" forState:UIControlStateNormal];
-        [_titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
-    //    [_titleButton sizeToFit];
+    // 创建one控制器
+    // 1.首先去寻找有没有ALOneView.xib
+    // 2.寻找ALOneViewController.xib
+    // 3.默认创建几乎透明的view
+    // init 方法底层调用 initWithNibName: bundle:
+    ALOneViewController *one = [[ALOneViewController alloc] init];
+    
+    // 当push的时候就会隐藏底部条
+    // 前提条件：只会隐藏系统自带的tabBar
+    one.hidesBottomBarWhenPushed = YES;
+    // 跳转到另外一个控制器
+    [self.navigationController pushViewController:one animated:YES];
+    
 }
 /*
 #pragma mark - Navigation

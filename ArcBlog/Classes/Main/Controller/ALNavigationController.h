@@ -1,5 +1,5 @@
 //
-//  ALNavigationViewController.h
+//  ALNavigationController.h
 //  ArcBlog
 //
 //  Created by Arclin on 15/11/19.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ALNavigationViewController : UINavigationController
+@interface ALNavigationController : UINavigationController
 
 @end
