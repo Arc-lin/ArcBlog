@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "ALTabBarController.h"
+#import "ALNewFeatureController.h"
+
+#define ALVersionKey @"version"
 /*
  LaunchScreen: 代替之前的启动图片
  好处：
@@ -24,7 +27,15 @@
 
  封装思想：相同功能抽取出一个类封装好
  抽方法：一般一个功能就抽一个方法
+
+ 偏好设置存储的好处
+ 1.不需要关心文件名
+ 2.快速进行键值对存储
  
+ OAuth授权：让数据更加安全
+ 流程：让数据提供商提供一个登录网站，显示在第三方客户端上面。
+ OAuth授权：1.需要获取第三方数据；2.第三方登录；3.第三方分享。
+ 注意：并不是所有软件都能OAuth授权，必须成为第三方开发者，才能OAuth授权。
  */
 
 @interface AppDelegate ()
@@ -40,12 +51,30 @@
     //创建窗口
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    // 创建tabBarVc
-    ALTabBarController *tabBarVc = [[ALTabBarController alloc] init];
-
+    // 1. 获取当前版本号
+    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleVersion"];
     
-    // 设置窗口的根控制器
-    self.window.rootViewController = tabBarVc;
+    // 2. 获取上一次的版本号
+    NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:ALVersionKey];
+    
+    // 3.判断当前是否有新的版本
+    if ([currentVersion isEqualToString:lastVersion]) {     // 没有最新的版本号
+       
+        // 创建tabBarVc
+        ALTabBarController *tabBarVc = [[ALTabBarController alloc] init];
+        
+        // 设置窗口的根控制器
+        self.window.rootViewController = tabBarVc;
+    }else{      // 有最新的版本号
+        
+        // 进入新特性界面
+        ALNewFeatureController *vc = [[ALNewFeatureController alloc] init];
+        
+        self.window.rootViewController = vc;
+
+        // 保持当前的版本，使用偏好设置
+        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:ALVersionKey];
+    }
 
     //显示窗口
     [self.window makeKeyAndVisible];

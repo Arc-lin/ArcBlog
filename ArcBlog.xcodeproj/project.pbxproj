@@ -17,6 +17,8 @@
 		35390F321BFC46B6006584F8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 35390F271BFC46B6006584F8 /* AppDelegate.m */; };
 		35390F331BFC46B6006584F8 /* UIImage+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 35390F2A1BFC46B6006584F8 /* UIImage+Image.m */; };
 		35390F341BFC46B6006584F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 35390F2B1BFC46B6006584F8 /* main.m */; };
+		355FDC521C01F845007132A3 /* ALNewFeatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355FDC511C01F845007132A3 /* ALNewFeatureController.m */; };
+		355FDC551C01FDF8007132A3 /* ALNewFeatureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 355FDC541C01FDF8007132A3 /* ALNewFeatureCell.m */; };
 		356DD27C1BFDC1EF00C0294B /* ALNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 356DD27B1BFDC1EF00C0294B /* ALNavigationController.m */; };
 		356DD27F1BFDC39E00C0294B /* ALDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 356DD27E1BFDC39E00C0294B /* ALDiscoverViewController.m */; };
 		356DD2821BFDC40D00C0294B /* ALSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 356DD2811BFDC40D00C0294B /* ALSearchBar.m */; };
@@ -74,6 +76,10 @@
 		35390F291BFC46B6006584F8 /* UIImage+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Image.h"; sourceTree = "<group>"; };
 		35390F2A1BFC46B6006584F8 /* UIImage+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Image.m"; sourceTree = "<group>"; };
 		35390F2B1BFC46B6006584F8 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		355FDC501C01F845007132A3 /* ALNewFeatureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALNewFeatureController.h; sourceTree = "<group>"; };
+		355FDC511C01F845007132A3 /* ALNewFeatureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALNewFeatureController.m; sourceTree = "<group>"; };
+		355FDC531C01FDF8007132A3 /* ALNewFeatureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALNewFeatureCell.h; sourceTree = "<group>"; };
+		355FDC541C01FDF8007132A3 /* ALNewFeatureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALNewFeatureCell.m; sourceTree = "<group>"; };
 		356DD27A1BFDC1EF00C0294B /* ALNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALNavigationController.h; sourceTree = "<group>"; };
 		356DD27B1BFDC1EF00C0294B /* ALNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALNavigationController.m; sourceTree = "<group>"; };
 		356DD27D1BFDC39E00C0294B /* ALDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALDiscoverViewController.h; sourceTree = "<group>"; };
@@ -195,6 +201,7 @@
 		35390F101BFC46B6006584F8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				355FDC4C1C01F7F1007132A3 /* NewFeature */,
 				35390F111BFC46B6006584F8 /* Discover */,
 				35390F151BFC46B6006584F8 /* Home */,
 				35390F191BFC46B6006584F8 /* Main */,
@@ -417,6 +424,41 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		355FDC4C1C01F7F1007132A3 /* NewFeature */ = {
+			isa = PBXGroup;
+			children = (
+				355FDC4D1C01F7F1007132A3 /* Controller */,
+				355FDC4E1C01F7F1007132A3 /* Model */,
+				355FDC4F1C01F7F1007132A3 /* View */,
+			);
+			path = NewFeature;
+			sourceTree = "<group>";
+		};
+		355FDC4D1C01F7F1007132A3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				355FDC501C01F845007132A3 /* ALNewFeatureController.h */,
+				355FDC511C01F845007132A3 /* ALNewFeatureController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		355FDC4E1C01F7F1007132A3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		355FDC4F1C01F7F1007132A3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				355FDC531C01FDF8007132A3 /* ALNewFeatureCell.h */,
+				355FDC541C01FDF8007132A3 /* ALNewFeatureCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -565,6 +607,7 @@
 				35C79C861BFF035F00C7A8E7 /* ALMessageViewController.m in Sources */,
 				35715E7C1BFCB7E40051914A /* ALBadgeView.m in Sources */,
 				356DD28F1BFE0E5600C0294B /* UIBarButtonItem+Item.m in Sources */,
+				355FDC551C01FDF8007132A3 /* ALNewFeatureCell.m in Sources */,
 				35390F301BFC46B6006584F8 /* ALTabBarController.m in Sources */,
 				356DD2921BFE1A0500C0294B /* ALPopMenu.m in Sources */,
 				35715E791BFCB78F0051914A /* ALTabBarButton.m in Sources */,
@@ -572,6 +615,7 @@
 				35390F341BFC46B6006584F8 /* main.m in Sources */,
 				352A3ECA1BFA2C370013ED3F /* ArcBlog.xcdatamodeld in Sources */,
 				356DD2851BFDD56C00C0294B /* ALCover.m in Sources */,
+				355FDC521C01F845007132A3 /* ALNewFeatureController.m in Sources */,
 				356DD2821BFDC40D00C0294B /* ALSearchBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

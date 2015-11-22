@@ -44,7 +44,21 @@
     
     [super pushViewController:viewController animated:animated];
 }
+// 导航控制器即将显示新的控制器时调用
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
+    // 获取主窗口
+    UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
+    // 获取tableBarVc rootViewController
+    UITabBarController *tabBarVc = (UITabBarController *) keyWindow.rootViewController;
+    // 移除系统的tabBarButton
+    for (UIView *tabBarButton in tabBarVc.tabBar.subviews) {
+        if ([tabBarButton isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
+            [tabBarButton removeFromSuperview];
+        }
+    }
 
+
+}
 // 导航控制器跳转完成时调用
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
     
@@ -54,6 +68,7 @@
         // 还原滑动返回手势的代理
         self.interactivePopGestureRecognizer.delegate = _popDelegate;
         
+               
     }else{ // 不是显示根控制器
         
         // 实现滑动返回功能
@@ -67,7 +82,8 @@
     [self popViewControllerAnimated:YES];
 }
 - (void)backToRoot{
-    [self popViewControllerAnimated:YES];
+    // 回到根控制器
+    [self popToRootViewControllerAnimated:YES];
 }
 
 - (void)viewDidLoad {
