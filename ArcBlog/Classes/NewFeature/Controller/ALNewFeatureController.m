@@ -10,6 +10,8 @@
 #import "ALNewFeatureCell.h"
 @interface ALNewFeatureController ()
 
+@property (nonatomic, weak) UIPageControl *control;
+
 @end
 
 @implementation ALNewFeatureController
@@ -50,7 +52,36 @@ static NSString *ID = @"cell";
     self.collectionView.bounces = NO;   //在第一页和最后一页的时候没有弹性
     self.collectionView.showsHorizontalScrollIndicator = NO;
     
+    // 添加pageController
+    [self setUpPageController];
 }
+
+// 添加pageController
+- (void)setUpPageController{
+    // 添加pageController，只需要设置位置，不需要管理尺寸
+    UIPageControl *control = [[UIPageControl alloc] init];
+    
+    control.numberOfPages = 4;
+    control.pageIndicatorTintColor = [UIColor blackColor];
+    control.currentPageIndicatorTintColor = [UIColor redColor];
+    
+    // 设置center
+    control.center = CGPointMake(self.view.width * 0.5, self.view.height);
+    _control = control;
+    [self.view addSubview:control];
+}
+
+#pragma mark - UIScrollView代理
+// 只要一滚动就会调用
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+
+    // 获取当前的漂移量，计算当前第几页
+    int page = scrollView.contentOffset.x / scrollView.bounds.size.width + 0.5;
+    
+    // 设置页数
+    _control.currentPage = page;
+}
+#pragma mark - UICollectionView 代理和数据源
 // 返回有多少组
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;
@@ -59,6 +90,8 @@ static NSString *ID = @"cell";
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return 4;
 }
+
+
 //返回cell长什么样子
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -67,12 +100,17 @@ static NSString *ID = @"cell";
     // 2. 看下当前是否有注册cell，如果注册了cell，就帮你创建ell
     // 3. 没有注册，报错
     ALNewFeatureCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
-   
+
     // 给cell传值
-    // 拼接图片名称
-    NSString *imageName = [NSString stringWithFormat:@"new_feature_%ld",indexPath.row+1];
-    
+    // 拼接图片名称 3.5寸屏幕 320*480
+    CGFloat screenH = [UIScreen mainScreen].bounds.size.height;
+    NSString *imageName = [NSString stringWithFormat:@"new_feature_%ld",indexPath.row + 1];
+    if (screenH > 480) { // 5 , 6 , 6 plus
+        imageName = [NSString stringWithFormat:@"new_feature_%ld-568h",indexPath.row + 1];
+    }
     cell.image = [UIImage imageNamed:imageName];
+    
+    [cell setIndexPath:indexPath count:4];
     
     return cell;
 

@@ -12,4 +12,6 @@
 
 @property (nonatomic,strong) UIImage *image;
 
+- (void)setIndexPath:(NSIndexPath *)indexPath count:(int)count;
+
 @end
