@@ -81,6 +81,7 @@ static NSString *ID = @"cell";
     // 设置页数
     _control.currentPage = page;
 }
+
 #pragma mark - UICollectionView 代理和数据源
 // 返回有多少组
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{

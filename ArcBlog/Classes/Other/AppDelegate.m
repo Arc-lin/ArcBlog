@@ -7,10 +7,11 @@
 //
 
 #import "AppDelegate.h"
-#import "ALTabBarController.h"
-#import "ALNewFeatureController.h"
+#import "ALOAuthViewController.h"
+#import "ALAccountTool.h"
+#import "ALRootTool.h"
+#import "ALOAuthViewController.h"
 
-#define ALVersionKey @"version"
 /*
  LaunchScreen: 代替之前的启动图片
  好处：
@@ -51,31 +52,21 @@
     //创建窗口
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    // 1. 获取当前版本号
-    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleVersion"];
+    // 选择根控制器
+    // 判断下有没有授权
+    // 进行授权
+    if([ALAccountTool account]){ // 已经授权
     
-    // 2. 获取上一次的版本号
-    NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:ALVersionKey];
+        // 选择根控制器
+        [ALRootTool chooseRootViewController:self.window];
     
-    // 3.判断当前是否有新的版本
-    if ([currentVersion isEqualToString:lastVersion]) {     // 没有最新的版本号
-       
-        // 创建tabBarVc
-        ALTabBarController *tabBarVc = [[ALTabBarController alloc] init];
-        
+    }else{ //进行授权
+        ALOAuthViewController *oauthVc = [[ALOAuthViewController alloc] init];
         // 设置窗口的根控制器
-        self.window.rootViewController = tabBarVc;
-    }else{      // 有最新的版本号
-        
-        // 进入新特性界面
-        ALNewFeatureController *vc = [[ALNewFeatureController alloc] init];
-        
-        self.window.rootViewController = vc;
-
-        // 保持当前的版本，使用偏好设置
-        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:ALVersionKey];
+        self.window.rootViewController = oauthVc;
     }
-
+    
+    
     //显示窗口
     [self.window makeKeyAndVisible];
     //makeKeyAndVisible底层实现

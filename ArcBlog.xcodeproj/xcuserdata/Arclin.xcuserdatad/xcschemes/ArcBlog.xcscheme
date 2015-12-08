@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "352A3EB81BFA2C370013ED3F"
-               BuildableName = "ArcBlog.app"
+               BuildableName = "ArclinBlog.app"
                BlueprintName = "ArcBlog"
                ReferencedContainer = "container:ArcBlog.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "352A3ED41BFA2C370013ED3F"
-               BuildableName = "ArcBlogTests.xctest"
+               BuildableName = "ArcBlog.xctest"
                BlueprintName = "ArcBlogTests"
                ReferencedContainer = "container:ArcBlog.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "352A3EDF1BFA2C370013ED3F"
-               BuildableName = "ArcBlogUITests.xctest"
+               BuildableName = "ArcBlog.xctest"
                BlueprintName = "ArcBlogUITests"
                ReferencedContainer = "container:ArcBlog.xcodeproj">
             </BuildableReference>
@@ -53,7 +53,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "352A3EB81BFA2C370013ED3F"
-            BuildableName = "ArcBlog.app"
+            BuildableName = "ArclinBlog.app"
             BlueprintName = "ArcBlog"
             ReferencedContainer = "container:ArcBlog.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "352A3EB81BFA2C370013ED3F"
-            BuildableName = "ArcBlog.app"
+            BuildableName = "ArclinBlog.app"
             BlueprintName = "ArcBlog"
             ReferencedContainer = "container:ArcBlog.xcodeproj">
          </BuildableReference>
@@ -95,7 +95,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "352A3EB81BFA2C370013ED3F"
-            BuildableName = "ArcBlog.app"
+            BuildableName = "ArclinBlog.app"
             BlueprintName = "ArcBlog"
             ReferencedContainer = "container:ArcBlog.xcodeproj">
          </BuildableReference>
