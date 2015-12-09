@@ -44,6 +44,7 @@
     
     [super pushViewController:viewController animated:animated];
 }
+
 // 导航控制器即将显示新的控制器时调用
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
     // 获取主窗口
@@ -56,9 +57,8 @@
             [tabBarButton removeFromSuperview];
         }
     }
-
-
 }
+
 // 导航控制器跳转完成时调用
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
     

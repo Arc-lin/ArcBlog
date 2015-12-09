@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "352A3EB81BFA2C370013ED3F"
-               BuildableName = "ArclinBlog.app"
+               BuildableName = "ArcBlog.app"
                BlueprintName = "ArcBlog"
                ReferencedContainer = "container:ArcBlog.xcodeproj">
             </BuildableReference>
@@ -53,7 +53,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "352A3EB81BFA2C370013ED3F"
-            BuildableName = "ArclinBlog.app"
+            BuildableName = "ArcBlog.app"
             BlueprintName = "ArcBlog"
             ReferencedContainer = "container:ArcBlog.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "352A3EB81BFA2C370013ED3F"
-            BuildableName = "ArclinBlog.app"
+            BuildableName = "ArcBlog.app"
             BlueprintName = "ArcBlog"
             ReferencedContainer = "container:ArcBlog.xcodeproj">
          </BuildableReference>
@@ -95,7 +95,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "352A3EB81BFA2C370013ED3F"
-            BuildableName = "ArclinBlog.app"
+            BuildableName = "ArcBlog.app"
             BlueprintName = "ArcBlog"
             ReferencedContainer = "container:ArcBlog.xcodeproj">
          </BuildableReference>

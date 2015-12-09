@@ -13,15 +13,34 @@
 #import "ALTitleButton.h"
 #import "ALCover.h"
 #import "ALPopMenu.h"
+#import "ALAccount.h"
+#import "ALStatus.h"
+#import "ALUser.h"
+#import "ALAccountTool.h"
+#import "AFHTTPRequestOperationManager.h"
+#import "MJExtension.h"
+#import "UIImageView+WebCache.h"
+
 @interface ALHomeViewController ()<ALCoverDelegate>
 
 @property (nonatomic,weak) ALTitleButton *titleButton;
 
 @property (nonatomic,strong) ALOneViewController *one;
 
+@property (nonatomic,strong) NSMutableArray *statuses;
+
 @end
 
 @implementation ALHomeViewController
+
+- (NSMutableArray *)statuses{
+    
+    if (_statuses == nil) {
+        _statuses = [NSMutableArray array];
+    }
+    
+    return _statuses;
+}
 
 - (ALOneViewController *)one{
 
@@ -43,6 +62,50 @@
     
     // 设置导航条内容
     [self setUpNavigationBar];
+    
+    // 请求最新的微博数据
+    [self loadNewStatus];
+}
+// {:json 字典 [:json数组]
+
+/**
+ * 获取服务器数据步骤
+ *   1.向服务器发送请求 -> 阅读接口文档，参照接口文档跟服务器打交道，接口文档（1.请求的url；2.发送什么样子的请求（get,post);3.返回数据格式）
+ *   2.服务器相应数据-> 解析数据，参照接口文档设计模型 -> 返回数据转换成模型
+ *   3.把数据展示到界面
+ */
+
+#pragma mark - 请求最新的微博
+- (void)loadNewStatus
+{
+    // 创建请求管理者
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+
+    // 创建一个参数字典
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"access_token"] = [ALAccountTool account].access_token;
+    
+    // 发送get请求
+    [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {  // 请求成功的时候调用
+        
+        // 获取到微博数据，转换成模型
+        // 获取微博字典数组
+        NSArray *dictArr = responseObject[@"statuses"];
+        // 字典数组转换为模型数组
+        self.statuses = (NSMutableArray *)[ALStatus objectArrayWithKeyValuesArray:dictArr];
+        
+        for (NSDictionary *dict in dictArr) {
+            // 字典转ALStatus
+            ALStatus *status = [ALStatus objectWithKeyValues:dict];
+            [self.statuses addObject:status];
+        }
+        
+        // 刷新表格
+        [self.tableView reloadData];
+        //ALLog(@"%@",self.statuses);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
 }
 
 #pragma mark - 设置导航条
@@ -122,14 +185,28 @@
     [self.navigationController pushViewController:one animated:YES];
     
 }
-/*
-#pragma mark - Navigation
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    return self.statuses.count;
+
 }
-*/
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static NSString *ID = @"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+    }
+    //获取status模型
+    ALStatus *status = self.statuses[indexPath.row];
+    // 用户昵称
+    cell.textLabel.text = status.user.name;
+    [cell.imageView sd_setImageWithURL:status.user.profile_image_url placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+    cell.detailTextLabel.text = status.text;
+    
+    return cell;
+}
 
 @end

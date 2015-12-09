@@ -83,6 +83,7 @@
 		35715E7C1BFCB7E40051914A /* ALBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35715E7B1BFCB7E40051914A /* ALBadgeView.m */; };
 		35715E7F1BFCBB070051914A /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 35715E7E1BFCBB070051914A /* UIView+Frame.m */; };
 		35715E821BFCCA360051914A /* ALHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35715E811BFCCA360051914A /* ALHomeViewController.m */; };
+		35815D5D1C1840A100144C53 /* ALStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 35815D5C1C1840A100144C53 /* ALStatus.m */; };
 		359A2BB91C0345F1000A21A2 /* ALOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 359A2BB81C0345F1000A21A2 /* ALOAuthViewController.m */; };
 		35B90E871C01848D00FED793 /* ALTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B90E851C01848D00FED793 /* ALTwoViewController.m */; };
 		35B90E881C01848D00FED793 /* ALTwoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35B90E861C01848D00FED793 /* ALTwoViewController.xib */; };
@@ -91,6 +92,8 @@
 		35C79C8D1BFF7EAB00C7A8E7 /* ALOneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35C79C8C1BFF7EAB00C7A8E7 /* ALOneViewController.xib */; };
 		35C9FBBD1C17078800144BF3 /* ALRootTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C9FBBC1C17078800144BF3 /* ALRootTool.m */; };
 		35E70FED1C12C008002C5B90 /* ALAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E70FEC1C12C008002C5B90 /* ALAccountTool.m */; };
+		35F7D4981C1847B800DCEA8D /* ALUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F7D4971C1847B800DCEA8D /* ALUser.m */; };
+		35F7D49B1C1848D700DCEA8D /* ALPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F7D49A1C1848D700DCEA8D /* ALPhoto.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -265,6 +268,8 @@
 		35715E7E1BFCBB070051914A /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		35715E801BFCCA360051914A /* ALHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALHomeViewController.h; sourceTree = "<group>"; };
 		35715E811BFCCA360051914A /* ALHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALHomeViewController.m; sourceTree = "<group>"; };
+		35815D5B1C1840A100144C53 /* ALStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALStatus.h; sourceTree = "<group>"; };
+		35815D5C1C1840A100144C53 /* ALStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALStatus.m; sourceTree = "<group>"; };
 		359A2BB71C0345F1000A21A2 /* ALOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALOAuthViewController.h; sourceTree = "<group>"; };
 		359A2BB81C0345F1000A21A2 /* ALOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALOAuthViewController.m; sourceTree = "<group>"; };
 		35B90E841C01848D00FED793 /* ALTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTwoViewController.h; sourceTree = "<group>"; };
@@ -279,6 +284,10 @@
 		35C9FBBC1C17078800144BF3 /* ALRootTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALRootTool.m; sourceTree = "<group>"; };
 		35E70FEB1C12C008002C5B90 /* ALAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAccountTool.h; sourceTree = "<group>"; };
 		35E70FEC1C12C008002C5B90 /* ALAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALAccountTool.m; sourceTree = "<group>"; };
+		35F7D4961C1847B800DCEA8D /* ALUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALUser.h; sourceTree = "<group>"; };
+		35F7D4971C1847B800DCEA8D /* ALUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALUser.m; sourceTree = "<group>"; };
+		35F7D4991C1848D700DCEA8D /* ALPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPhoto.h; sourceTree = "<group>"; };
+		35F7D49A1C1848D700DCEA8D /* ALPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPhoto.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -601,6 +610,12 @@
 		35390F171BFC46B6006584F8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				35815D5B1C1840A100144C53 /* ALStatus.h */,
+				35815D5C1C1840A100144C53 /* ALStatus.m */,
+				35F7D4961C1847B800DCEA8D /* ALUser.h */,
+				35F7D4971C1847B800DCEA8D /* ALUser.m */,
+				35F7D4991C1848D700DCEA8D /* ALPhoto.h */,
+				35F7D49A1C1848D700DCEA8D /* ALPhoto.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -996,8 +1011,10 @@
 				3516C79C1C049CBC007237B4 /* NSObject+MJCoding.m in Sources */,
 				3516C7BA1C049CBD007237B4 /* UIImage+MultiFormat.m in Sources */,
 				3516C79A1C049CBC007237B4 /* MJIvar.m in Sources */,
+				35815D5D1C1840A100144C53 /* ALStatus.m in Sources */,
 				35390F311BFC46B6006584F8 /* ALTabBar.m in Sources */,
 				3516C7A21C049CBD007237B4 /* MJPhotoLoadingView.m in Sources */,
+				35F7D49B1C1848D700DCEA8D /* ALPhoto.m in Sources */,
 				3516C7911C049CBC007237B4 /* AFURLConnectionOperation.m in Sources */,
 				35715E821BFCCA360051914A /* ALHomeViewController.m in Sources */,
 				35B90E871C01848D00FED793 /* ALTwoViewController.m in Sources */,
@@ -1023,6 +1040,7 @@
 				3516C79B1C049CBC007237B4 /* MJType.m in Sources */,
 				35C79C861BFF035F00C7A8E7 /* ALMessageViewController.m in Sources */,
 				3516C7BB1C049CBD007237B4 /* UIImage+WebP.m in Sources */,
+				35F7D4981C1847B800DCEA8D /* ALUser.m in Sources */,
 				35715E7C1BFCB7E40051914A /* ALBadgeView.m in Sources */,
 				3516C7941C049CBC007237B4 /* AFURLSessionManager.m in Sources */,
 				356DD28F1BFE0E5600C0294B /* UIBarButtonItem+Item.m in Sources */,

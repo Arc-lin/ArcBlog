@@ -83,7 +83,7 @@
         // 不加载回调界面
         return NO;
     }
-     NSLog(@"%@",urlStr);
+    // NSLog(@"%@",urlStr);
     return YES;
 }
 
@@ -122,7 +122,6 @@
        
         // 保存账号信息:数据存储一般我们开发中会搞一个业务类，专门处理数据的存储
         // 以后我不想归档，用数据库，直接改业务类
-        
         [ALAccountTool saveAccount:account];
         
         // 进入主页或者新特性，选择窗口的根控制器
