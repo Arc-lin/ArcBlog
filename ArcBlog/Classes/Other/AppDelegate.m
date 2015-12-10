@@ -11,7 +11,7 @@
 #import "ALAccountTool.h"
 #import "ALRootTool.h"
 #import "ALOAuthViewController.h"
-
+#import "SDWebImageManager.h"
 /*
  LaunchScreen: 代替之前的启动图片
  好处：
@@ -78,7 +78,14 @@
     
     return YES;
 }
-
+// 接受到内存警告时调用
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application{
+    // 停止所有下载
+    [[SDWebImageManager sharedManager] cancelAll];
+    // 删除缓存
+    [[SDWebImageManager sharedManager].imageCache clearMemory];
+    
+}
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

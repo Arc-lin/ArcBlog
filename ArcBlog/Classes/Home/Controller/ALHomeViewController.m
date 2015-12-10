@@ -20,6 +20,7 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "MJExtension.h"
 #import "UIImageView+WebCache.h"
+#import "MJRefresh.h"
 
 @interface ALHomeViewController ()<ALCoverDelegate>
 
@@ -65,9 +66,54 @@
     
     // 请求最新的微博数据
     [self loadNewStatus];
+    
+    // 添加下拉刷新控件
+    [self.tableView addHeaderWithTarget:self action:@selector(loadNewStatus)];
+
+    // 自动下拉刷新
+    [self.tableView headerBeginRefreshing];
+    
+    // 添加上拉刷新控件
+    [self.tableView addFooterWithTarget:self action:@selector(loadMoreStatus)];
+}
+
+#pragma mark - 请求更多旧的微博数据
+- (void)loadMoreStatus{
+    // 创建请求管理者
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    
+    // 创建一个参数字典
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    if (self.statuses.count) { // 有微博数据，才需要下拉刷新
+        long long maxId = [[[self.statuses lastObject] idstr] longLongValue] -1;
+        params[@"max_id"] = [NSString stringWithFormat:@"%lld",maxId];
+    }
+    params[@"access_token"] = [ALAccountTool account].access_token;
+    
+    // 发送get请求
+    [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {  // 请求成功的时候调用
+        
+        // 结束上拉刷新
+        [self.tableView footerEndRefreshing];
+        
+        // 获取到微博数据，转换成模型
+        // 获取微博字典数组
+        NSArray *dictArr = responseObject[@"statuses"];
+        // 字典数组转换为模型数组
+        NSArray *statuses = (NSMutableArray *)[ALStatus objectArrayWithKeyValuesArray:dictArr];
+        
+        // 把数组中的元素添加进去
+        [self.statuses addObjectsFromArray:statuses];
+        
+        // 刷新表格
+        [self.tableView reloadData];
+        //ALLog(@"%@",self.statuses);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
+
 }
 // {:json 字典 [:json数组]
-
 /**
  * 获取服务器数据步骤
  *   1.向服务器发送请求 -> 阅读接口文档，参照接口文档跟服务器打交道，接口文档（1.请求的url；2.发送什么样子的请求（get,post);3.返回数据格式）
@@ -83,16 +129,27 @@
 
     // 创建一个参数字典
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    if (self.statuses.count) { // 有微博数据，才需要下拉刷新
+        params[@"since_id"] = [self.statuses[0] idstr];
+    }
     params[@"access_token"] = [ALAccountTool account].access_token;
     
     // 发送get请求
     [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {  // 请求成功的时候调用
         
+        // 结束下拉刷新
+        [self.tableView headerEndRefreshing];
+        
         // 获取到微博数据，转换成模型
         // 获取微博字典数组
         NSArray *dictArr = responseObject[@"statuses"];
         // 字典数组转换为模型数组
-        self.statuses = (NSMutableArray *)[ALStatus objectArrayWithKeyValuesArray:dictArr];
+        NSArray *statuses = (NSMutableArray *)[ALStatus objectArrayWithKeyValuesArray:dictArr];
+    
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, statuses.count)];
+        // 把最新的微博数据插入到最前面
+        [self.statuses insertObjects:statuses atIndexes:indexSet];
+        
         
         for (NSDictionary *dict in dictArr) {
             // 字典转ALStatus
