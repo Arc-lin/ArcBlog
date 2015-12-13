@@ -21,6 +21,7 @@
 #import "MJExtension.h"
 #import "UIImageView+WebCache.h"
 #import "MJRefresh.h"
+#import "ALHttpTool.h"
 
 @interface ALHomeViewController ()<ALCoverDelegate>
 
@@ -121,12 +122,10 @@
  *   3.把数据展示到界面
  */
 
+
 #pragma mark - 请求最新的微博
 - (void)loadNewStatus
 {
-    // 创建请求管理者
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-
     // 创建一个参数字典
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     if (self.statuses.count) { // 有微博数据，才需要下拉刷新
@@ -134,9 +133,8 @@
     }
     params[@"access_token"] = [ALAccountTool account].access_token;
     
-    // 发送get请求
-    [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {  // 请求成功的时候调用
-        
+    [ALHttpTool GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(id responseObject) {
+       
         // 结束下拉刷新
         [self.tableView headerEndRefreshing];
         
@@ -145,7 +143,7 @@
         NSArray *dictArr = responseObject[@"statuses"];
         // 字典数组转换为模型数组
         NSArray *statuses = (NSMutableArray *)[ALStatus objectArrayWithKeyValuesArray:dictArr];
-    
+        
         NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, statuses.count)];
         // 把最新的微博数据插入到最前面
         [self.statuses insertObjects:statuses atIndexes:indexSet];
@@ -159,10 +157,40 @@
         
         // 刷新表格
         [self.tableView reloadData];
-        //ALLog(@"%@",self.statuses);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
+    } failure:^(NSError *error) {
         
     }];
+    /*
+     block做参数，原理解释如下
+     
+     void (^success)(id) = ^(id responseObject) { // HttpTool请求成功的回调
+     // 请求成功代码先保存
+     
+     // 结束下拉刷新
+     [self.tableView headerEndRefreshing];
+     
+     // 获取到微博数据 转换成模型
+     // 获取微博字典数组
+     NSArray *dictArr = responseObject[@"statuses"];
+     // 把字典数组转换成模型数组
+     NSArray *statuses = (NSMutableArray *)[CZStatus objectArrayWithKeyValuesArray:dictArr];
+     
+     NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, statuses.count)];
+     // 把最新的微博数插入到最前面
+     [self.statuses insertObjects:statuses atIndexes:indexSet];
+     
+     // 刷新表格
+     [self.tableView reloadData];
+     
+     
+     };
+     
+     [ALHttpTool GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:success failure:^(NSError *error) {
+     
+     }];
+     
+     */
 }
 
 #pragma mark - 设置导航条

@@ -71,6 +71,7 @@
 		35390F341BFC46B6006584F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 35390F2B1BFC46B6006584F8 /* main.m */; };
 		355FDC521C01F845007132A3 /* ALNewFeatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355FDC511C01F845007132A3 /* ALNewFeatureController.m */; };
 		355FDC551C01FDF8007132A3 /* ALNewFeatureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 355FDC541C01FDF8007132A3 /* ALNewFeatureCell.m */; };
+		356C46091C1AFF4800F15758 /* ALHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 356C46081C1AFF4800F15758 /* ALHttpTool.m */; };
 		356DD27C1BFDC1EF00C0294B /* ALNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 356DD27B1BFDC1EF00C0294B /* ALNavigationController.m */; };
 		356DD27F1BFDC39E00C0294B /* ALDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 356DD27E1BFDC39E00C0294B /* ALDiscoverViewController.m */; };
 		356DD2821BFDC40D00C0294B /* ALSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 356DD2811BFDC40D00C0294B /* ALSearchBar.m */; };
@@ -243,6 +244,8 @@
 		355FDC511C01F845007132A3 /* ALNewFeatureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALNewFeatureController.m; sourceTree = "<group>"; };
 		355FDC531C01FDF8007132A3 /* ALNewFeatureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALNewFeatureCell.h; sourceTree = "<group>"; };
 		355FDC541C01FDF8007132A3 /* ALNewFeatureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALNewFeatureCell.m; sourceTree = "<group>"; };
+		356C46071C1AFF4800F15758 /* ALHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALHttpTool.h; sourceTree = "<group>"; };
+		356C46081C1AFF4800F15758 /* ALHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALHttpTool.m; sourceTree = "<group>"; };
 		356DD27A1BFDC1EF00C0294B /* ALNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALNavigationController.h; sourceTree = "<group>"; };
 		356DD27B1BFDC1EF00C0294B /* ALNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALNavigationController.m; sourceTree = "<group>"; };
 		356DD27D1BFDC39E00C0294B /* ALDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALDiscoverViewController.h; sourceTree = "<group>"; };
@@ -801,6 +804,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		356C46061C1AFF3000F15758 /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				356C46071C1AFF4800F15758 /* ALHttpTool.h */,
+				356C46081C1AFF4800F15758 /* ALHttpTool.m */,
+			);
+			path = Http;
+			sourceTree = "<group>";
+		};
 		359A2BB31C03458F000A21A2 /* OAuth */ = {
 			isa = PBXGroup;
 			children = (
@@ -848,6 +860,7 @@
 		35E70FE91C12BFEF002C5B90 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				356C46061C1AFF3000F15758 /* Http */,
 				35C9FBBA1C17078800144BF3 /* Root */,
 				35E70FEA1C12BFEF002C5B90 /* Account */,
 			);
@@ -1040,6 +1053,7 @@
 				3516C79B1C049CBC007237B4 /* MJType.m in Sources */,
 				35C79C861BFF035F00C7A8E7 /* ALMessageViewController.m in Sources */,
 				3516C7BB1C049CBD007237B4 /* UIImage+WebP.m in Sources */,
+				356C46091C1AFF4800F15758 /* ALHttpTool.m in Sources */,
 				35F7D4981C1847B800DCEA8D /* ALUser.m in Sources */,
 				35715E7C1BFCB7E40051914A /* ALBadgeView.m in Sources */,
 				3516C7941C049CBC007237B4 /* AFURLSessionManager.m in Sources */,
@@ -1164,6 +1178,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = ArcBlog;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1201,6 +1216,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = ArcBlog;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1211,16 +1227,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ArcBlog/Classes/Other/ArcBlog.pch;
 				INFOPLIST_FILE = ArcBlog/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sziit.ArcBlog;
 				PRODUCT_NAME = ArcBlog;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -1228,16 +1244,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ArcBlog/Classes/Other/ArcBlog.pch;
 				INFOPLIST_FILE = ArcBlog/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sziit.ArcBlog;
 				PRODUCT_NAME = ArcBlog;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
