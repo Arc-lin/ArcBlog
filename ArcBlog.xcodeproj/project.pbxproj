@@ -69,6 +69,7 @@
 		35390F321BFC46B6006584F8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 35390F271BFC46B6006584F8 /* AppDelegate.m */; };
 		35390F331BFC46B6006584F8 /* UIImage+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 35390F2A1BFC46B6006584F8 /* UIImage+Image.m */; };
 		35390F341BFC46B6006584F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 35390F2B1BFC46B6006584F8 /* main.m */; };
+		354193711C1D854900BF8B90 /* ALStatusTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 354193701C1D854900BF8B90 /* ALStatusTool.m */; };
 		355FDC521C01F845007132A3 /* ALNewFeatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355FDC511C01F845007132A3 /* ALNewFeatureController.m */; };
 		355FDC551C01FDF8007132A3 /* ALNewFeatureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 355FDC541C01FDF8007132A3 /* ALNewFeatureCell.m */; };
 		356C46091C1AFF4800F15758 /* ALHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 356C46081C1AFF4800F15758 /* ALHttpTool.m */; };
@@ -240,6 +241,8 @@
 		35390F291BFC46B6006584F8 /* UIImage+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Image.h"; sourceTree = "<group>"; };
 		35390F2A1BFC46B6006584F8 /* UIImage+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Image.m"; sourceTree = "<group>"; };
 		35390F2B1BFC46B6006584F8 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3541936F1C1D854900BF8B90 /* ALStatusTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALStatusTool.h; sourceTree = "<group>"; };
+		354193701C1D854900BF8B90 /* ALStatusTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALStatusTool.m; sourceTree = "<group>"; };
 		355FDC501C01F845007132A3 /* ALNewFeatureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALNewFeatureController.h; sourceTree = "<group>"; };
 		355FDC511C01F845007132A3 /* ALNewFeatureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALNewFeatureController.m; sourceTree = "<group>"; };
 		355FDC531C01FDF8007132A3 /* ALNewFeatureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALNewFeatureCell.h; sourceTree = "<group>"; };
@@ -769,6 +772,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		3541936E1C1D853700BF8B90 /* Status */ = {
+			isa = PBXGroup;
+			children = (
+				3541936F1C1D854900BF8B90 /* ALStatusTool.h */,
+				354193701C1D854900BF8B90 /* ALStatusTool.m */,
+			);
+			path = Status;
+			sourceTree = "<group>";
+		};
 		355FDC4C1C01F7F1007132A3 /* NewFeature */ = {
 			isa = PBXGroup;
 			children = (
@@ -860,6 +872,7 @@
 		35E70FE91C12BFEF002C5B90 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				3541936E1C1D853700BF8B90 /* Status */,
 				356C46061C1AFF3000F15758 /* Http */,
 				35C9FBBA1C17078800144BF3 /* Root */,
 				35E70FEA1C12BFEF002C5B90 /* Account */,
@@ -1070,6 +1083,7 @@
 				35390F341BFC46B6006584F8 /* main.m in Sources */,
 				352A3ECA1BFA2C370013ED3F /* ArcBlog.xcdatamodeld in Sources */,
 				3516C7901C049CBC007237B4 /* AFSecurityPolicy.m in Sources */,
+				354193711C1D854900BF8B90 /* ALStatusTool.m in Sources */,
 				3516C7B31C049CBD007237B4 /* SDWebImageDecoder.m in Sources */,
 				3516C7BE1C049CBD007237B4 /* UIView+WebCacheOperation.m in Sources */,
 				3516C7A61C049CBD007237B4 /* SDWebImageManager+MJ.m in Sources */,
@@ -1236,7 +1250,7 @@
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sziit.ArcBlog;
 				PRODUCT_NAME = ArcBlog;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1253,7 +1267,7 @@
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sziit.ArcBlog;
 				PRODUCT_NAME = ArcBlog;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

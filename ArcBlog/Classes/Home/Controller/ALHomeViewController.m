@@ -22,7 +22,7 @@
 #import "UIImageView+WebCache.h"
 #import "MJRefresh.h"
 #import "ALHttpTool.h"
-
+#import "ALStatusTool.h"
 @interface ALHomeViewController ()<ALCoverDelegate>
 
 @property (nonatomic,weak) ALTitleButton *titleButton;
@@ -80,36 +80,26 @@
 
 #pragma mark - 请求更多旧的微博数据
 - (void)loadMoreStatus{
-    // 创建请求管理者
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     
-    // 创建一个参数字典
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    NSString *maxIdStr = nil;
     if (self.statuses.count) { // 有微博数据，才需要下拉刷新
         long long maxId = [[[self.statuses lastObject] idstr] longLongValue] -1;
-        params[@"max_id"] = [NSString stringWithFormat:@"%lld",maxId];
+        maxIdStr = [NSString stringWithFormat:@"%lld",maxId];
     }
-    params[@"access_token"] = [ALAccountTool account].access_token;
     
-    // 发送get请求
-    [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {  // 请求成功的时候调用
+    // 请求更多的微博数据
+    [ALStatusTool moreStautsWithMaxId:maxIdStr success:^(NSArray *statuses) {
         
         // 结束上拉刷新
         [self.tableView footerEndRefreshing];
-        
-        // 获取到微博数据，转换成模型
-        // 获取微博字典数组
-        NSArray *dictArr = responseObject[@"statuses"];
-        // 字典数组转换为模型数组
-        NSArray *statuses = (NSMutableArray *)[ALStatus objectArrayWithKeyValuesArray:dictArr];
-        
+       
         // 把数组中的元素添加进去
         [self.statuses addObjectsFromArray:statuses];
         
         // 刷新表格
         [self.tableView reloadData];
-        //ALLog(@"%@",self.statuses);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
+    } failure:^(NSError *error) {
         
     }];
 
@@ -126,41 +116,26 @@
 #pragma mark - 请求最新的微博
 - (void)loadNewStatus
 {
-    // 创建一个参数字典
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    if (self.statuses.count) { // 有微博数据，才需要下拉刷新
-        params[@"since_id"] = [self.statuses[0] idstr];
+    NSString *sinceId = nil;
+    if(self.statuses.count){  // 有微博数据才需要下拉刷新
+        sinceId = [self.statuses[0] idstr];
     }
-    params[@"access_token"] = [ALAccountTool account].access_token;
-    
-    [ALHttpTool GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(id responseObject) {
-       
+    [ALStatusTool newStautsWithSinceId:sinceId success:^(NSArray *statuses) { // 请求成功的block
+        
         // 结束下拉刷新
         [self.tableView headerEndRefreshing];
-        
-        // 获取到微博数据，转换成模型
-        // 获取微博字典数组
-        NSArray *dictArr = responseObject[@"statuses"];
-        // 字典数组转换为模型数组
-        NSArray *statuses = (NSMutableArray *)[ALStatus objectArrayWithKeyValuesArray:dictArr];
         
         NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, statuses.count)];
         // 把最新的微博数据插入到最前面
         [self.statuses insertObjects:statuses atIndexes:indexSet];
         
-        
-        for (NSDictionary *dict in dictArr) {
-            // 字典转ALStatus
-            ALStatus *status = [ALStatus objectWithKeyValues:dict];
-            [self.statuses addObject:status];
-        }
-        
         // 刷新表格
         [self.tableView reloadData];
-
     } failure:^(NSError *error) {
         
     }];
+    
+
     /*
      block做参数，原理解释如下
      
