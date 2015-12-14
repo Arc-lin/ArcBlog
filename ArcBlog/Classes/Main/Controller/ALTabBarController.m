@@ -13,11 +13,17 @@
 #import "ALDiscoverViewController.h"
 #import "ALMessageViewController.h"
 #import "ALProfileViewController.h"
+#import "ALUserTool.h"
+#import "ALUserResult.h"
 @interface ALTabBarController ()<ALTabBarDelegate>
 
 @property (nonatomic,strong) NSMutableArray *items;
 
 @property (nonatomic,weak) ALHomeViewController *home;
+
+@property (nonatomic,weak) ALMessageViewController *message;
+
+@property (nonatomic,weak) ALProfileViewController *profile;
 
 @end
 
@@ -67,15 +73,38 @@
     // 自定义tabBar
     [self setUpTabBar];
     
+    // 每隔一段时间请求未读数
+    [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(requestUnread) userInfo:nil repeats:YES];
+    
     //ALTabBar *tabBar =[[ALTabBar alloc] initWithFrame:self.tabBar.frame];
-
+    
     // 利用KVC把readOnly的属性改
     // 把类从UITabBar改为自定义的ALTabBar
     // [self setValue:tabBar forKeyPath:@"tabBar"];
-//    objc_msgSend(self,@selector(setTabBar:),tabBar);
+    // objc_msgSend(self,@selector(setTabBar:),tabBar);
+  
 
 }
-
+// 请求未读数
+- (void)requestUnread{
+    
+    [ALUserTool unreadWithSuccess:^(ALUserResult *result) {
+        
+        // 设置首页未读数
+        _home.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d",result.status];
+        // 设置消息未读数
+        _message.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d",result.status];
+        // 设置我的未读数
+        _profile.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d",result.follower];
+        
+        // 设置应用程序所有的未读数
+        [UIApplication sharedApplication].applicationIconBadgeNumber = result.totalCount;
+        
+    } failure:^(NSError *error) {
+        
+    }];
+    
+}
 #pragma mark - 设置tabBar
 - (void)setUpTabBar{
 
@@ -97,6 +126,11 @@
 #pragma mark - 当点击tabBar上的按钮调用
 - (void)tabBar:(ALTabBar *)tabBar didClickButton:(NSInteger)index
 {
+//    self.selectedIndex 当前的页面   index 点下去的页面的索引
+//    只有当点击首页，并且不是从别的页面跳来首页的时候才进行刷新操作
+    if(index == 0 && self.selectedIndex == index){ // 点击首页，刷新
+        [_home refresh];
+    }
     self.selectedIndex = index;
 }
 
@@ -128,6 +162,7 @@
     // 消息
     ALMessageViewController *message = [[ALMessageViewController alloc] init];
     [self setUpOneChildViewController:message image:[UIImage imageNamed:@"tabbar_message_center"] selectedImage:[UIImage imageWithOriginalName:@"tabbar_message_center_selected"] title:@"消息"];
+    _message = message;
     
     // 发现
     ALDiscoverViewController *discover = [[ALDiscoverViewController alloc] init];
@@ -138,7 +173,7 @@
     ALProfileViewController *profile = [[ALProfileViewController alloc] init];
     [self setUpOneChildViewController:profile image:[UIImage imageNamed:@"tabbar_profile"] selectedImage:[UIImage imageWithOriginalName:@"tabbar_profile_selected"] title:@"我"];
 
-    
+    _profile = profile;
 }
 #pragma mark - 添加一个子控件
 - (void)setUpOneChildViewController:(UIViewController *)vc image:(UIImage *)image selectedImage:(UIImage *)selectedImage title:(NSString *)title{

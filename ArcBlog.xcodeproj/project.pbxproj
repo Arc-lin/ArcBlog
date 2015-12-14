@@ -72,6 +72,11 @@
 		354193711C1D854900BF8B90 /* ALStatusTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 354193701C1D854900BF8B90 /* ALStatusTool.m */; };
 		354193761C1DA85D00BF8B90 /* ALStatusParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 354193751C1DA85D00BF8B90 /* ALStatusParam.m */; };
 		354193791C1DAAD300BF8B90 /* ALStatusResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 354193781C1DAAD300BF8B90 /* ALStatusResult.m */; };
+		3555B3341C1EB5AE00ECDDAF /* ALAccountParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 3555B3331C1EB5AE00ECDDAF /* ALAccountParam.m */; };
+		3555B33A1C1EBADB00ECDDAF /* ALUserParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 3555B3391C1EBADB00ECDDAF /* ALUserParam.m */; };
+		3555B33E1C1EBB2B00ECDDAF /* ALBaseParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 3555B33D1C1EBB2B00ECDDAF /* ALBaseParam.m */; };
+		3555B3411C1EBDDE00ECDDAF /* ALUserResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 3555B3401C1EBDDE00ECDDAF /* ALUserResult.m */; };
+		3555B3441C1EBF0100ECDDAF /* ALUserTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3555B3431C1EBF0100ECDDAF /* ALUserTool.m */; };
 		355FDC521C01F845007132A3 /* ALNewFeatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355FDC511C01F845007132A3 /* ALNewFeatureController.m */; };
 		355FDC551C01FDF8007132A3 /* ALNewFeatureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 355FDC541C01FDF8007132A3 /* ALNewFeatureCell.m */; };
 		356C46091C1AFF4800F15758 /* ALHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 356C46081C1AFF4800F15758 /* ALHttpTool.m */; };
@@ -249,6 +254,16 @@
 		354193751C1DA85D00BF8B90 /* ALStatusParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALStatusParam.m; sourceTree = "<group>"; };
 		354193771C1DAAD300BF8B90 /* ALStatusResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALStatusResult.h; sourceTree = "<group>"; };
 		354193781C1DAAD300BF8B90 /* ALStatusResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALStatusResult.m; sourceTree = "<group>"; };
+		3555B3321C1EB5AE00ECDDAF /* ALAccountParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAccountParam.h; sourceTree = "<group>"; };
+		3555B3331C1EB5AE00ECDDAF /* ALAccountParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALAccountParam.m; sourceTree = "<group>"; };
+		3555B3381C1EBADB00ECDDAF /* ALUserParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALUserParam.h; sourceTree = "<group>"; };
+		3555B3391C1EBADB00ECDDAF /* ALUserParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALUserParam.m; sourceTree = "<group>"; };
+		3555B33C1C1EBB2B00ECDDAF /* ALBaseParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALBaseParam.h; sourceTree = "<group>"; };
+		3555B33D1C1EBB2B00ECDDAF /* ALBaseParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALBaseParam.m; sourceTree = "<group>"; };
+		3555B33F1C1EBDDE00ECDDAF /* ALUserResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALUserResult.h; sourceTree = "<group>"; };
+		3555B3401C1EBDDE00ECDDAF /* ALUserResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALUserResult.m; sourceTree = "<group>"; };
+		3555B3421C1EBF0100ECDDAF /* ALUserTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALUserTool.h; sourceTree = "<group>"; };
+		3555B3431C1EBF0100ECDDAF /* ALUserTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALUserTool.m; sourceTree = "<group>"; };
 		355FDC501C01F845007132A3 /* ALNewFeatureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALNewFeatureController.h; sourceTree = "<group>"; };
 		355FDC511C01F845007132A3 /* ALNewFeatureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALNewFeatureController.m; sourceTree = "<group>"; };
 		355FDC531C01FDF8007132A3 /* ALNewFeatureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALNewFeatureCell.h; sourceTree = "<group>"; };
@@ -807,6 +822,53 @@
 			path = Result;
 			sourceTree = "<group>";
 		};
+		3555B3311C1EB58300ECDDAF /* Param */ = {
+			isa = PBXGroup;
+			children = (
+				3555B3321C1EB5AE00ECDDAF /* ALAccountParam.h */,
+				3555B3331C1EB5AE00ECDDAF /* ALAccountParam.m */,
+			);
+			path = Param;
+			sourceTree = "<group>";
+		};
+		3555B3351C1EBABC00ECDDAF /* User */ = {
+			isa = PBXGroup;
+			children = (
+				3555B3361C1EBABC00ECDDAF /* Param */,
+				3555B3371C1EBABC00ECDDAF /* Result */,
+				3555B3421C1EBF0100ECDDAF /* ALUserTool.h */,
+				3555B3431C1EBF0100ECDDAF /* ALUserTool.m */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		3555B3361C1EBABC00ECDDAF /* Param */ = {
+			isa = PBXGroup;
+			children = (
+				3555B3381C1EBADB00ECDDAF /* ALUserParam.h */,
+				3555B3391C1EBADB00ECDDAF /* ALUserParam.m */,
+			);
+			path = Param;
+			sourceTree = "<group>";
+		};
+		3555B3371C1EBABC00ECDDAF /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				3555B33F1C1EBDDE00ECDDAF /* ALUserResult.h */,
+				3555B3401C1EBDDE00ECDDAF /* ALUserResult.m */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
+		3555B33B1C1EBB1D00ECDDAF /* Param */ = {
+			isa = PBXGroup;
+			children = (
+				3555B33C1C1EBB2B00ECDDAF /* ALBaseParam.h */,
+				3555B33D1C1EBB2B00ECDDAF /* ALBaseParam.m */,
+			);
+			path = Param;
+			sourceTree = "<group>";
+		};
 		355FDC4C1C01F7F1007132A3 /* NewFeature */ = {
 			isa = PBXGroup;
 			children = (
@@ -898,6 +960,8 @@
 		35E70FE91C12BFEF002C5B90 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				3555B33B1C1EBB1D00ECDDAF /* Param */,
+				3555B3351C1EBABC00ECDDAF /* User */,
 				3541936E1C1D853700BF8B90 /* Status */,
 				356C46061C1AFF3000F15758 /* Http */,
 				35C9FBBA1C17078800144BF3 /* Root */,
@@ -909,6 +973,7 @@
 		35E70FEA1C12BFEF002C5B90 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				3555B3311C1EB58300ECDDAF /* Param */,
 				35E70FEB1C12C008002C5B90 /* ALAccountTool.h */,
 				35E70FEC1C12C008002C5B90 /* ALAccountTool.m */,
 			);
@@ -1073,6 +1138,7 @@
 				3516C7B91C049CBD007237B4 /* UIImage+GIF.m in Sources */,
 				3516C79E1C049CBD007237B4 /* NSObject+MJKeyValue.m in Sources */,
 				3516C7951C049CBC007237B4 /* MBProgressHUD+MJ.m in Sources */,
+				3555B3341C1EB5AE00ECDDAF /* ALAccountParam.m in Sources */,
 				3516C7B71C049CBD007237B4 /* SDWebImagePrefetcher.m in Sources */,
 				354193761C1DA85D00BF8B90 /* ALStatusParam.m in Sources */,
 				35C79C891BFF065600C7A8E7 /* ALProfileViewController.m in Sources */,
@@ -1117,19 +1183,23 @@
 				3516C7A91C049CBD007237B4 /* MJRefreshConst.m in Sources */,
 				35C9FBBD1C17078800144BF3 /* ALRootTool.m in Sources */,
 				3516C78D1C049CBC007237B4 /* AFHTTPRequestOperationManager.m in Sources */,
+				3555B33A1C1EBADB00ECDDAF /* ALUserParam.m in Sources */,
 				35128E8F1C05B00B001364DB /* ALAccount.m in Sources */,
 				3516C7971C049CBC007237B4 /* MBProgressHUD.m in Sources */,
 				3516C78E1C049CBC007237B4 /* AFHTTPSessionManager.m in Sources */,
 				356DD2851BFDD56C00C0294B /* ALCover.m in Sources */,
+				3555B3441C1EBF0100ECDDAF /* ALUserTool.m in Sources */,
 				355FDC521C01F845007132A3 /* ALNewFeatureController.m in Sources */,
 				3516C78C1C049CBC007237B4 /* AFHTTPRequestOperation.m in Sources */,
 				356DD2821BFDC40D00C0294B /* ALSearchBar.m in Sources */,
+				3555B33E1C1EBB2B00ECDDAF /* ALBaseParam.m in Sources */,
 				3516C7A11C049CBD007237B4 /* MJPhotoBrowser.m in Sources */,
 				3516C7B11C049CBD007237B4 /* SDImageCache.m in Sources */,
 				3516C7931C049CBC007237B4 /* AFURLResponseSerialization.m in Sources */,
 				3516C7AF1C049CBD007237B4 /* MKAnnotationView+WebCache.m in Sources */,
 				3516C7981C049CBC007237B4 /* MJConst.m in Sources */,
 				3516C7A81C049CBD007237B4 /* MJRefreshBaseView.m in Sources */,
+				3555B3411C1EBDDE00ECDDAF /* ALUserResult.m in Sources */,
 				3516C7B51C049CBD007237B4 /* SDWebImageDownloaderOperation.m in Sources */,
 				3516C7B01C049CBD007237B4 /* NSData+ImageContentType.m in Sources */,
 				354193791C1DAAD300BF8B90 /* ALStatusResult.m in Sources */,

@@ -78,11 +78,20 @@
     [self.tableView addFooterWithTarget:self action:@selector(loadMoreStatus)];
 }
 
+
+#pragma mark - 刷新最新的微博
+- (void)refresh{
+    
+    //自动下拉刷新
+    [self.tableView headerBeginRefreshing];
+}
+
+
 #pragma mark - 请求更多旧的微博数据
 - (void)loadMoreStatus{
     
     NSString *maxIdStr = nil;
-    if (self.statuses.count) { // 有微博数据，才需要下拉刷新
+    if (self.statuses.count) { 
         long long maxId = [[[self.statuses lastObject] idstr] longLongValue] -1;
         maxIdStr = [NSString stringWithFormat:@"%lld",maxId];
     }

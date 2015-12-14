@@ -10,4 +10,6 @@
 
 @interface ALHomeViewController : UITableViewController
 
+- (void)refresh;
+
 @end
