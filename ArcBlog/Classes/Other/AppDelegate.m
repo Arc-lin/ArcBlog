@@ -12,6 +12,7 @@
 #import "ALRootTool.h"
 #import "ALOAuthViewController.h"
 #import "SDWebImageManager.h"
+#import <AVFoundation/AVFoundation.h>
 /*
  LaunchScreen: 代替之前的启动图片
  好处：
@@ -41,6 +42,8 @@
 
 @interface AppDelegate ()
 
+@property (nonatomic,strong) AVAudioPlayer *player;
+
 @end
 
 @implementation AppDelegate
@@ -55,7 +58,7 @@
     
     //创建窗口
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    
+
     // 选择根控制器
     // 判断下有没有授权
     // 进行授权
@@ -90,14 +93,33 @@
     [[SDWebImageManager sharedManager].imageCache clearMemory];
     
 }
+
+// 失去焦点
 - (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"silence.mp3" withExtension:nil];
+    AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    [player prepareToPlay];
+    // 无限播放
+    player.numberOfLoops = -1;
+    
+    [player play];
+    
+    _player = player;
 }
 
+//  程序进入后台的时候调用
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    // 开启一个后台任务，时间不确定，优先级比较低，假如系统要关闭应用，首先就考虑关闭该应用
+    UIBackgroundTaskIdentifier ID = [application beginBackgroundTaskWithExpirationHandler:^{
+        
+        // 当后台任务接受用的时候调用
+        [application endBackgroundTask:ID];
+    }];
+    
+    // 如何提高后台任务的优先级，欺骗苹果，我们是后台播放程序
+    // 但是苹果会检测你的程序当时有没有播放音乐，如果没有，有可能就干掉你
+    // 微博： 在程序即将失去焦点的时候播放静音音乐。
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {

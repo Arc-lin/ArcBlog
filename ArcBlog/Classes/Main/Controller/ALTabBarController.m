@@ -89,7 +89,7 @@
 - (void)requestUnread{
     
     [ALUserTool unreadWithSuccess:^(ALUserResult *result) {
-        
+       
         // 设置首页未读数
         _home.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d",result.status];
         // 设置消息未读数

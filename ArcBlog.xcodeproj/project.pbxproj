@@ -94,6 +94,8 @@
 		35715E821BFCCA360051914A /* ALHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35715E811BFCCA360051914A /* ALHomeViewController.m */; };
 		35815D5D1C1840A100144C53 /* ALStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 35815D5C1C1840A100144C53 /* ALStatus.m */; };
 		359A2BB91C0345F1000A21A2 /* ALOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 359A2BB81C0345F1000A21A2 /* ALOAuthViewController.m */; };
+		35AD96071C22C5D700D66A2D /* silence.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 35AD96051C22C5D700D66A2D /* silence.mp3 */; };
+		35AD960A1C22DDC200D66A2D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35AD96091C22DDC200D66A2D /* AVFoundation.framework */; };
 		35B90E871C01848D00FED793 /* ALTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B90E851C01848D00FED793 /* ALTwoViewController.m */; };
 		35B90E881C01848D00FED793 /* ALTwoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35B90E861C01848D00FED793 /* ALTwoViewController.xib */; };
 		35C79C861BFF035F00C7A8E7 /* ALMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C79C851BFF035F00C7A8E7 /* ALMessageViewController.m */; };
@@ -299,6 +301,8 @@
 		35815D5C1C1840A100144C53 /* ALStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALStatus.m; sourceTree = "<group>"; };
 		359A2BB71C0345F1000A21A2 /* ALOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALOAuthViewController.h; sourceTree = "<group>"; };
 		359A2BB81C0345F1000A21A2 /* ALOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALOAuthViewController.m; sourceTree = "<group>"; };
+		35AD96051C22C5D700D66A2D /* silence.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = silence.mp3; sourceTree = "<group>"; };
+		35AD96091C22DDC200D66A2D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		35B90E841C01848D00FED793 /* ALTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTwoViewController.h; sourceTree = "<group>"; };
 		35B90E851C01848D00FED793 /* ALTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALTwoViewController.m; sourceTree = "<group>"; };
 		35B90E861C01848D00FED793 /* ALTwoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALTwoViewController.xib; sourceTree = "<group>"; };
@@ -322,6 +326,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35AD960A1C22DDC200D66A2D /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +508,7 @@
 		352A3EB01BFA2C370013ED3F = {
 			isa = PBXGroup;
 			children = (
+				35AD96091C22DDC200D66A2D /* AVFoundation.framework */,
 				352A3EBB1BFA2C370013ED3F /* ArcBlog */,
 				352A3ED81BFA2C370013ED3F /* ArcBlogTests */,
 				352A3EE31BFA2C380013ED3F /* ArcBlogUITests */,
@@ -536,6 +542,7 @@
 		352A3EBC1BFA2C370013ED3F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				35AD96041C22C5D700D66A2D /* Mp3 */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -948,6 +955,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		35AD96041C22C5D700D66A2D /* Mp3 */ = {
+			isa = PBXGroup;
+			children = (
+				35AD96051C22C5D700D66A2D /* silence.mp3 */,
+			);
+			path = Mp3;
+			sourceTree = "<group>";
+		};
 		35C9FBBA1C17078800144BF3 /* Root */ = {
 			isa = PBXGroup;
 			children = (
@@ -1049,6 +1064,11 @@
 					352A3EB81BFA2C370013ED3F = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = 3KUDYRU22W;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					352A3ED41BFA2C370013ED3F = {
 						CreatedOnToolsVersion = 7.1;
@@ -1091,6 +1111,7 @@
 				352A3ECF1BFA2C370013ED3F /* LaunchScreen.storyboard in Resources */,
 				3516C7A71C049CBD007237B4 /* MJRefresh.bundle in Resources */,
 				35C79C8D1BFF7EAB00C7A8E7 /* ALOneViewController.xib in Resources */,
+				35AD96071C22C5D700D66A2D /* silence.mp3 in Resources */,
 				3516C7961C049CBC007237B4 /* MBProgressHUD.bundle in Resources */,
 				35B90E881C01848D00FED793 /* ALTwoViewController.xib in Resources */,
 				352A3ECC1BFA2C370013ED3F /* Assets.xcassets in Resources */,
@@ -1427,7 +1448,7 @@
 				352A3EE81BFA2C380013ED3F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		352A3EE91BFA2C380013ED3F /* Build configuration list for PBXNativeTarget "ArcBlog" */ = {
 			isa = XCConfigurationList;
@@ -1436,7 +1457,7 @@
 				352A3EEB1BFA2C380013ED3F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		352A3EEC1BFA2C380013ED3F /* Build configuration list for PBXNativeTarget "ArcBlogTests" */ = {
 			isa = XCConfigurationList;
@@ -1445,7 +1466,7 @@
 				352A3EEE1BFA2C380013ED3F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		352A3EEF1BFA2C380013ED3F /* Build configuration list for PBXNativeTarget "ArcBlogUITests" */ = {
 			isa = XCConfigurationList;
@@ -1454,7 +1475,7 @@
 				352A3EF11BFA2C380013ED3F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 
