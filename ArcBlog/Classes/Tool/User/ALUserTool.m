@@ -12,6 +12,7 @@
 #import "ALUserParam.h"
 #import "ALAccountTool.h"
 #import "ALAccount.h"
+#import "ALUser.h"
 #import "MJExtension.h"
 @implementation ALUserTool
 
@@ -35,5 +36,25 @@
             failure(error);
         }
     }];
+}
+
++ (void)userInfoWithSuccess:(void (^)(ALUser *))success failure:(void (^)(NSError *))failure{
+    
+    // 创建参数模型
+    ALUserParam *param = [ALUserParam param];
+    param.uid = [ALAccountTool account].uid;
+    
+    [ALHttpTool GET:@"https://api.weibo.com/2/users/show.json" parameters:param.keyValues success:^(id responseObject) {
+        // 用户字典转模型
+        ALUser *user = [ALUser objectWithKeyValues:responseObject];
+        if (success) {
+            success(user);
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
+    
 }
 @end

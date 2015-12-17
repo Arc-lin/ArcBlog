@@ -14,8 +14,10 @@
 #import "ALCover.h"
 #import "ALPopMenu.h"
 #import "ALAccount.h"
+#import "ALUserTool.h"
 #import "ALStatus.h"
 #import "ALUser.h"
+#import "ALAccount.h"
 #import "ALAccountTool.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "MJExtension.h"
@@ -76,6 +78,22 @@
     
     // 添加上拉刷新控件
     [self.tableView addFooterWithTarget:self action:@selector(loadMoreStatus)];
+    
+    // 一开始展示之前的微博名称，然后再发送用户信息请求，直接赋值
+    
+    // 请求当前用户的昵称
+    [ALUserTool userInfoWithSuccess:^(ALUser *user) {
+        // 请求当前账号的用户信息
+        // 设置导航条的标题
+        [self.titleButton setTitle:user.name forState:UIControlStateNormal];
+        // 获取当前的账号
+        ALAccount *account = [ALAccountTool account];
+        account.name = user.name;
+        // 保存用户的名称
+        
+    } failure:^(NSError *error) {
+            
+    }];
 }
 
 
@@ -190,8 +208,8 @@
     ALTitleButton *titleButton = [ALTitleButton buttonWithType:UIButtonTypeCustom];
     
     _titleButton = titleButton;
-    
-    [titleButton setTitle:@"首页" forState:UIControlStateNormal];
+    NSString *title = [ALAccountTool account].name?:@"首页";
+    [titleButton setTitle:title forState:UIControlStateNormal];
     [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
     [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateSelected];
     
