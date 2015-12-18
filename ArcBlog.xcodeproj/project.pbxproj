@@ -102,6 +102,10 @@
 		35C79C891BFF065600C7A8E7 /* ALProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C79C881BFF065600C7A8E7 /* ALProfileViewController.m */; };
 		35C79C8D1BFF7EAB00C7A8E7 /* ALOneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35C79C8C1BFF7EAB00C7A8E7 /* ALOneViewController.xib */; };
 		35C9FBBD1C17078800144BF3 /* ALRootTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C9FBBC1C17078800144BF3 /* ALRootTool.m */; };
+		35DA48681C2464D4008AB7D2 /* ALStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DA48671C2464D4008AB7D2 /* ALStatusCell.m */; };
+		35DA486B1C246585008AB7D2 /* ALOriginalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DA486A1C246585008AB7D2 /* ALOriginalView.m */; };
+		35DA486E1C24659B008AB7D2 /* ALReweetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DA486D1C24659B008AB7D2 /* ALReweetView.m */; };
+		35DA48711C2465C6008AB7D2 /* ALStatusToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DA48701C2465C6008AB7D2 /* ALStatusToolBar.m */; };
 		35E70FED1C12C008002C5B90 /* ALAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E70FEC1C12C008002C5B90 /* ALAccountTool.m */; };
 		35F7D4981C1847B800DCEA8D /* ALUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F7D4971C1847B800DCEA8D /* ALUser.m */; };
 		35F7D49B1C1848D700DCEA8D /* ALPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F7D49A1C1848D700DCEA8D /* ALPhoto.m */; };
@@ -313,6 +317,14 @@
 		35C79C8C1BFF7EAB00C7A8E7 /* ALOneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALOneViewController.xib; sourceTree = "<group>"; };
 		35C9FBBB1C17078800144BF3 /* ALRootTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALRootTool.h; sourceTree = "<group>"; };
 		35C9FBBC1C17078800144BF3 /* ALRootTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALRootTool.m; sourceTree = "<group>"; };
+		35DA48661C2464D4008AB7D2 /* ALStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALStatusCell.h; sourceTree = "<group>"; };
+		35DA48671C2464D4008AB7D2 /* ALStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALStatusCell.m; sourceTree = "<group>"; };
+		35DA48691C246585008AB7D2 /* ALOriginalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALOriginalView.h; sourceTree = "<group>"; };
+		35DA486A1C246585008AB7D2 /* ALOriginalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALOriginalView.m; sourceTree = "<group>"; };
+		35DA486C1C24659B008AB7D2 /* ALReweetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALReweetView.h; sourceTree = "<group>"; };
+		35DA486D1C24659B008AB7D2 /* ALReweetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALReweetView.m; sourceTree = "<group>"; };
+		35DA486F1C2465C6008AB7D2 /* ALStatusToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALStatusToolBar.h; sourceTree = "<group>"; };
+		35DA48701C2465C6008AB7D2 /* ALStatusToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALStatusToolBar.m; sourceTree = "<group>"; };
 		35E70FEB1C12C008002C5B90 /* ALAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAccountTool.h; sourceTree = "<group>"; };
 		35E70FEC1C12C008002C5B90 /* ALAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALAccountTool.m; sourceTree = "<group>"; };
 		35F7D4961C1847B800DCEA8D /* ALUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALUser.h; sourceTree = "<group>"; };
@@ -657,6 +669,7 @@
 		35390F181BFC46B6006584F8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				35DA48651C2464D4008AB7D2 /* Cell */,
 				356DD2831BFDD56C00C0294B /* ALCover.h */,
 				356DD2841BFDD56C00C0294B /* ALCover.m */,
 				356DD28A1BFE0A6000C0294B /* ALTitleButton.h */,
@@ -972,6 +985,21 @@
 			path = Root;
 			sourceTree = "<group>";
 		};
+		35DA48651C2464D4008AB7D2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				35DA48661C2464D4008AB7D2 /* ALStatusCell.h */,
+				35DA48671C2464D4008AB7D2 /* ALStatusCell.m */,
+				35DA48691C246585008AB7D2 /* ALOriginalView.h */,
+				35DA486A1C246585008AB7D2 /* ALOriginalView.m */,
+				35DA486C1C24659B008AB7D2 /* ALReweetView.h */,
+				35DA486D1C24659B008AB7D2 /* ALReweetView.m */,
+				35DA486F1C2465C6008AB7D2 /* ALStatusToolBar.h */,
+				35DA48701C2465C6008AB7D2 /* ALStatusToolBar.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		35E70FE91C12BFEF002C5B90 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
@@ -1145,10 +1173,12 @@
 				356DD27F1BFDC39E00C0294B /* ALDiscoverViewController.m in Sources */,
 				35390F321BFC46B6006584F8 /* AppDelegate.m in Sources */,
 				356DD2891BFE083600C0294B /* ALOneViewController.m in Sources */,
+				35DA486B1C246585008AB7D2 /* ALOriginalView.m in Sources */,
 				3516C7A51C049CBD007237B4 /* MJPhotoView.m in Sources */,
 				3516C79C1C049CBC007237B4 /* NSObject+MJCoding.m in Sources */,
 				3516C7BA1C049CBD007237B4 /* UIImage+MultiFormat.m in Sources */,
 				3516C79A1C049CBC007237B4 /* MJIvar.m in Sources */,
+				35DA486E1C24659B008AB7D2 /* ALReweetView.m in Sources */,
 				35815D5D1C1840A100144C53 /* ALStatus.m in Sources */,
 				35390F311BFC46B6006584F8 /* ALTabBar.m in Sources */,
 				3516C7A21C049CBD007237B4 /* MJPhotoLoadingView.m in Sources */,
@@ -1176,6 +1206,8 @@
 				3516C7BD1C049CBD007237B4 /* UIImageView+WebCache.m in Sources */,
 				35715E7F1BFCBB070051914A /* UIView+Frame.m in Sources */,
 				3516C78F1C049CBC007237B4 /* AFNetworkReachabilityManager.m in Sources */,
+				35DA48681C2464D4008AB7D2 /* ALStatusCell.m in Sources */,
+				35DA48711C2465C6008AB7D2 /* ALStatusToolBar.m in Sources */,
 				3516C7B41C049CBD007237B4 /* SDWebImageDownloader.m in Sources */,
 				3516C79B1C049CBC007237B4 /* MJType.m in Sources */,
 				35C79C861BFF035F00C7A8E7 /* ALMessageViewController.m in Sources */,
