@@ -25,6 +25,7 @@
 #import "MJRefresh.h"
 #import "ALHttpTool.h"
 #import "ALStatusTool.h"
+#import "ALStatusCell.h"
 @interface ALHomeViewController ()<ALCoverDelegate>
 
 @property (nonatomic,weak) ALTitleButton *titleButton;
@@ -322,20 +323,23 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    static NSString *ID = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-    }
+    // 创建cell
+    ALStatusCell *cell = [ALStatusCell cellWithTableView:tableView];
     //获取status模型
     ALStatus *status = self.statuses[indexPath.row];
+
+    cell.status = status;
+    
     // 用户昵称
-    cell.textLabel.text = status.user.name;
-    [cell.imageView sd_setImageWithURL:status.user.profile_image_url placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
-    cell.detailTextLabel.text = status.text;
+//    cell.textLabel.text = status.user.name;
+//    [cell.imageView sd_setImageWithURL:status.user.profile_image_url placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+//    cell.detailTextLabel.text = status.text;
     
     return cell;
 }
 
+// 返回cell高度
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 100;
+}
 @end

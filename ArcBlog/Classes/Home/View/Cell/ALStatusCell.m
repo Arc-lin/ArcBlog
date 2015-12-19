@@ -52,4 +52,32 @@
     [self addSubview:toolbar];
     _toolbar = toolbar;
 }
+
++ (instancetype)cellWithTableView:(UITableView *)tableView{
+    
+    static NSString *ID = @"cell";
+    id cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    
+    if (cell == nil) {
+        cell = [[self alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+    }
+    
+    return cell;
+}
+
+/**
+ *  1. cell的高度应该提前计算出来
+    2. cell的高度必须要先计算出每个子控件的frame，才能确定
+    3. 如果在cell的setStatus方法计算子控件的位置，会比较耗性能
+ *
+ *  解决：MVVM思想
+ */
+- (void)setStatus:(ALStatus *)status{
+    _status = status;
+    
+    // 计算每个子控件的位置
+    
+    // 赋值 
+    
+}
 @end
