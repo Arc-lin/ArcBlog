@@ -1,5 +1,5 @@
 //
-//  ALReweetView.h
+//  ALRetweetView.h
 //  ArcBlog
 //
 //  Created by Arclin on 15/12/19.
@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ALReweetView : UIView
+@class ALStatusFrame;
+@interface ALRetweetView : UIView
+
+@property (nonatomic,strong) ALStatusFrame *statusF;
 
 @end

@@ -1,13 +1,13 @@
 //
-//  ALReweetView.m
+//  ALRetweetView.m
 //  ArcBlog
 //
 //  Created by Arclin on 15/12/19.
 //  Copyright © 2015年 sziit. All rights reserved.
 //
 
-#import "ALReweetView.h"
-@interface ALReweetView()
+#import "ALRetweetView.h"
+@interface ALRetweetView()
 
 @property (nonatomic,weak) UILabel *nameView; // 昵称
 
@@ -15,7 +15,7 @@
 
 @end
 
-@implementation ALReweetView
+@implementation ALRetweetView
 
 - (instancetype)initWithFrame:(CGRect)frame{
     

@@ -26,13 +26,16 @@
 #import "ALHttpTool.h"
 #import "ALStatusTool.h"
 #import "ALStatusCell.h"
+#import "ALStatusFrame.h"
 @interface ALHomeViewController ()<ALCoverDelegate>
 
 @property (nonatomic,weak) ALTitleButton *titleButton;
 
 @property (nonatomic,strong) ALOneViewController *one;
-
-@property (nonatomic,strong) NSMutableArray *statuses;
+/**
+ *  ViewModel:ALStatusFrame
+ */
+@property (nonatomic,strong) NSMutableArray *statusFrames;
 
 @end
 
@@ -40,11 +43,11 @@
 
 - (NSMutableArray *)statuses{
     
-    if (_statuses == nil) {
-        _statuses = [NSMutableArray array];
+    if (_statusFrames == nil) {
+        _statusFrames = [NSMutableArray array];
     }
     
-    return _statuses;
+    return _statusFrames;
 }
 
 - (ALOneViewController *)one{
@@ -110,7 +113,8 @@
 - (void)loadMoreStatus{
     
     NSString *maxIdStr = nil;
-    if (self.statuses.count) { 
+    if (self.statusFrames.count) {
+        ALStatus *s = [self.statusFrames[0] status];
         long long maxId = [[[self.statuses lastObject] idstr] longLongValue] -1;
         maxIdStr = [NSString stringWithFormat:@"%lld",maxId];
     }
@@ -121,8 +125,16 @@
         // 结束上拉刷新
         [self.tableView footerEndRefreshing];
        
+        // 模型转换视图模型 ALStatus -> ALStatusFrame
+        NSMutableArray *statusFrames = [NSMutableArray array];
+        for (ALStatus *status in statuses) {
+            ALStatusFrame *statusF = [[ALStatusFrame alloc] init];
+            statusF.status = status;
+            [statusFrames addObject:statusF];
+        }
+
         // 把数组中的元素添加进去
-        [self.statuses addObjectsFromArray:statuses];
+        [self.statusFrames addObjectsFromArray:statusFrames];
         
         // 刷新表格
         [self.tableView reloadData];
@@ -145,7 +157,8 @@
 - (void)loadNewStatus
 {
     NSString *sinceId = nil;
-    if(self.statuses.count){  // 有微博数据才需要下拉刷新
+    if(self.statusFrames.count){  // 有微博数据才需要下拉刷新
+        ALStatus *s = [self.statusFrames[0] status];
         sinceId = [self.statuses[0] idstr];
     }
     [ALStatusTool newStautsWithSinceId:sinceId success:^(NSArray *statuses) { // 请求成功的block
@@ -155,6 +168,14 @@
         
         // 结束下拉刷新
         [self.tableView headerEndRefreshing];
+        
+        // 模型转换视图模型 ALStatus -> ALStatusFrame
+        NSMutableArray *statusFrames = [NSMutableArray array];
+        for (ALStatus *status in statuses) {
+            ALStatusFrame *statusF = [[ALStatusFrame alloc] init];
+            statusF.status = status;
+            [statusFrames addObject:statusF];
+        }
         
         NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, statuses.count)];
         // 把最新的微博数据插入到最前面
@@ -317,7 +338,7 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 
-    return self.statuses.count;
+    return self.statusFrames.count;
 
 }
 
@@ -326,9 +347,9 @@
     // 创建cell
     ALStatusCell *cell = [ALStatusCell cellWithTableView:tableView];
     //获取status模型
-    ALStatus *status = self.statuses[indexPath.row];
+    ALStatusFrame *statusF = self.statusFrames[indexPath.row];
 
-    cell.status = status;
+    cell.statusF = statusF;
     
     // 用户昵称
 //    cell.textLabel.text = status.user.name;

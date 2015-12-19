@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class  ALStatusFrame;
 @interface ALOriginalView : UIView
+
+@property (nonatomic,strong) ALStatusFrame *statusF;
 
 @end

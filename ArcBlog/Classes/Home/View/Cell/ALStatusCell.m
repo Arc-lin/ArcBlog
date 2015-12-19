@@ -8,14 +8,15 @@
 
 #import "ALStatusCell.h"
 #import "ALOriginalView.h"
-#import "ALReweetView.h"
+#import "ALRetweetView.h"
 #import "ALStatusToolBar.h"
+#import "ALStatusFrame.h"
 
 @interface ALStatusCell()
 
 @property (nonatomic,weak) ALOriginalView *originalView;
 
-@property (nonatomic,weak) ALReweetView *reweetView;
+@property (nonatomic,weak) ALRetweetView *retweetView;
 
 @property (nonatomic,weak) ALStatusToolBar *toolbar;
 
@@ -43,9 +44,9 @@
     _originalView = originalView;
     
     // 转发微博
-    ALReweetView *reweetView = [[ALReweetView alloc] init];
-    [self addSubview:reweetView];
-    _reweetView = reweetView;
+    ALRetweetView *retweetView = [[ALRetweetView alloc] init];
+    [self addSubview:retweetView];
+    _retweetView = retweetView;
     
     // 工具条
     ALStatusToolBar *toolbar = [[ALStatusToolBar alloc] init];
@@ -71,13 +72,22 @@
     3. 如果在cell的setStatus方法计算子控件的位置，会比较耗性能
  *
  *  解决：MVVM思想
+     M:模型
+     V:视图
+     VM:视图模型（模型包装视图模型，模型+模型对应视图的frame）
  */
-- (void)setStatus:(ALStatus *)status{
-    _status = status;
+- (void)setStatusF:(ALStatusFrame *)statusF{
+    _statusF = statusF;
     
-    // 计算每个子控件的位置
+    // 设置原创微博的frame
+    _originalView.frame = statusF.originalViewFrame;
+    _originalView.statusF = statusF;
+    
+    // 设置原创微博frame
+    _retweetView.frame = statusF.retweetViewFrame;
+    _retweetView.statusF = statusF;
     
     // 赋值 
-    
+    _toolbar.frame = statusF.toolBarFrame;
 }
 @end

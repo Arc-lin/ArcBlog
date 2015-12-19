@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class ALStatus;
+@class ALStatusFrame;
 @interface ALStatusCell : UITableViewCell
 
-@property (nonatomic,strong) ALStatus *status;
+@property (nonatomic,strong) ALStatusFrame *statusF;
 
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 

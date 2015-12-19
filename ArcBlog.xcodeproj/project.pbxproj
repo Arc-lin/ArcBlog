@@ -77,6 +77,7 @@
 		3555B33E1C1EBB2B00ECDDAF /* ALBaseParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 3555B33D1C1EBB2B00ECDDAF /* ALBaseParam.m */; };
 		3555B3411C1EBDDE00ECDDAF /* ALUserResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 3555B3401C1EBDDE00ECDDAF /* ALUserResult.m */; };
 		3555B3441C1EBF0100ECDDAF /* ALUserTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3555B3431C1EBF0100ECDDAF /* ALUserTool.m */; };
+		3555B6A41C2584AB008594D2 /* ALStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 3555B6A31C2584AB008594D2 /* ALStatusFrame.m */; };
 		355FDC521C01F845007132A3 /* ALNewFeatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 355FDC511C01F845007132A3 /* ALNewFeatureController.m */; };
 		355FDC551C01FDF8007132A3 /* ALNewFeatureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 355FDC541C01FDF8007132A3 /* ALNewFeatureCell.m */; };
 		356C46091C1AFF4800F15758 /* ALHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 356C46081C1AFF4800F15758 /* ALHttpTool.m */; };
@@ -104,7 +105,7 @@
 		35C9FBBD1C17078800144BF3 /* ALRootTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C9FBBC1C17078800144BF3 /* ALRootTool.m */; };
 		35DA48681C2464D4008AB7D2 /* ALStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DA48671C2464D4008AB7D2 /* ALStatusCell.m */; };
 		35DA486B1C246585008AB7D2 /* ALOriginalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DA486A1C246585008AB7D2 /* ALOriginalView.m */; };
-		35DA486E1C24659B008AB7D2 /* ALReweetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DA486D1C24659B008AB7D2 /* ALReweetView.m */; };
+		35DA486E1C24659B008AB7D2 /* ALRetweetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DA486D1C24659B008AB7D2 /* ALRetweetView.m */; };
 		35DA48711C2465C6008AB7D2 /* ALStatusToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DA48701C2465C6008AB7D2 /* ALStatusToolBar.m */; };
 		35E70FED1C12C008002C5B90 /* ALAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E70FEC1C12C008002C5B90 /* ALAccountTool.m */; };
 		35F7D4981C1847B800DCEA8D /* ALUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F7D4971C1847B800DCEA8D /* ALUser.m */; };
@@ -270,6 +271,8 @@
 		3555B3401C1EBDDE00ECDDAF /* ALUserResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALUserResult.m; sourceTree = "<group>"; };
 		3555B3421C1EBF0100ECDDAF /* ALUserTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALUserTool.h; sourceTree = "<group>"; };
 		3555B3431C1EBF0100ECDDAF /* ALUserTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALUserTool.m; sourceTree = "<group>"; };
+		3555B6A21C2584AB008594D2 /* ALStatusFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALStatusFrame.h; sourceTree = "<group>"; };
+		3555B6A31C2584AB008594D2 /* ALStatusFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALStatusFrame.m; sourceTree = "<group>"; };
 		355FDC501C01F845007132A3 /* ALNewFeatureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALNewFeatureController.h; sourceTree = "<group>"; };
 		355FDC511C01F845007132A3 /* ALNewFeatureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALNewFeatureController.m; sourceTree = "<group>"; };
 		355FDC531C01FDF8007132A3 /* ALNewFeatureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALNewFeatureCell.h; sourceTree = "<group>"; };
@@ -321,8 +324,8 @@
 		35DA48671C2464D4008AB7D2 /* ALStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALStatusCell.m; sourceTree = "<group>"; };
 		35DA48691C246585008AB7D2 /* ALOriginalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALOriginalView.h; sourceTree = "<group>"; };
 		35DA486A1C246585008AB7D2 /* ALOriginalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALOriginalView.m; sourceTree = "<group>"; };
-		35DA486C1C24659B008AB7D2 /* ALReweetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALReweetView.h; sourceTree = "<group>"; };
-		35DA486D1C24659B008AB7D2 /* ALReweetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALReweetView.m; sourceTree = "<group>"; };
+		35DA486C1C24659B008AB7D2 /* ALRetweetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALRetweetView.h; sourceTree = "<group>"; };
+		35DA486D1C24659B008AB7D2 /* ALRetweetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALRetweetView.m; sourceTree = "<group>"; };
 		35DA486F1C2465C6008AB7D2 /* ALStatusToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALStatusToolBar.h; sourceTree = "<group>"; };
 		35DA48701C2465C6008AB7D2 /* ALStatusToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALStatusToolBar.m; sourceTree = "<group>"; };
 		35E70FEB1C12C008002C5B90 /* ALAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAccountTool.h; sourceTree = "<group>"; };
@@ -656,6 +659,7 @@
 		35390F171BFC46B6006584F8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3555B6A11C258481008594D2 /* ViewModel */,
 				35815D5B1C1840A100144C53 /* ALStatus.h */,
 				35815D5C1C1840A100144C53 /* ALStatus.m */,
 				35F7D4961C1847B800DCEA8D /* ALUser.h */,
@@ -889,6 +893,15 @@
 			path = Param;
 			sourceTree = "<group>";
 		};
+		3555B6A11C258481008594D2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3555B6A21C2584AB008594D2 /* ALStatusFrame.h */,
+				3555B6A31C2584AB008594D2 /* ALStatusFrame.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		355FDC4C1C01F7F1007132A3 /* NewFeature */ = {
 			isa = PBXGroup;
 			children = (
@@ -992,8 +1005,8 @@
 				35DA48671C2464D4008AB7D2 /* ALStatusCell.m */,
 				35DA48691C246585008AB7D2 /* ALOriginalView.h */,
 				35DA486A1C246585008AB7D2 /* ALOriginalView.m */,
-				35DA486C1C24659B008AB7D2 /* ALReweetView.h */,
-				35DA486D1C24659B008AB7D2 /* ALReweetView.m */,
+				35DA486C1C24659B008AB7D2 /* ALRetweetView.h */,
+				35DA486D1C24659B008AB7D2 /* ALRetweetView.m */,
 				35DA486F1C2465C6008AB7D2 /* ALStatusToolBar.h */,
 				35DA48701C2465C6008AB7D2 /* ALStatusToolBar.m */,
 			);
@@ -1178,7 +1191,7 @@
 				3516C79C1C049CBC007237B4 /* NSObject+MJCoding.m in Sources */,
 				3516C7BA1C049CBD007237B4 /* UIImage+MultiFormat.m in Sources */,
 				3516C79A1C049CBC007237B4 /* MJIvar.m in Sources */,
-				35DA486E1C24659B008AB7D2 /* ALReweetView.m in Sources */,
+				35DA486E1C24659B008AB7D2 /* ALRetweetView.m in Sources */,
 				35815D5D1C1840A100144C53 /* ALStatus.m in Sources */,
 				35390F311BFC46B6006584F8 /* ALTabBar.m in Sources */,
 				3516C7A21C049CBD007237B4 /* MJPhotoLoadingView.m in Sources */,
@@ -1201,6 +1214,7 @@
 				3516C7991C049CBC007237B4 /* MJFoundation.m in Sources */,
 				3516C7A31C049CBD007237B4 /* MJPhotoProgressView.m in Sources */,
 				35390F331BFC46B6006584F8 /* UIImage+Image.m in Sources */,
+				3555B6A41C2584AB008594D2 /* ALStatusFrame.m in Sources */,
 				3516C7B81C049CBD007237B4 /* UIButton+WebCache.m in Sources */,
 				3516C7AD1C049CBD007237B4 /* UIScrollView+MJRefresh.m in Sources */,
 				3516C7BD1C049CBD007237B4 /* UIImageView+WebCache.m in Sources */,
