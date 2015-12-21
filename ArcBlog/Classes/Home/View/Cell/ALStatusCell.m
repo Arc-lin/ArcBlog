@@ -12,6 +12,15 @@
 #import "ALStatusToolBar.h"
 #import "ALStatusFrame.h"
 
+/**
+ *  复杂界面开发步骤
+    1. 按照业务逻辑划分界面结构（原创，转发，工具条）
+    2. 每一个结构，都自定义控件
+    3. 在控件上先把所有画风的结构界面添加上去
+    4. 计算每个控件的位置，如果以后碰见空间的内容是根据模型决定的，马上就搞个ViewModel模型（模型+控件的frame）
+    5. 模型转视图模型
+    6. 给控件赋值视图模型
+ */
 @interface ALStatusCell()
 
 @property (nonatomic,weak) ALOriginalView *originalView;
@@ -30,6 +39,7 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         // 添加所有子控件
         [self setUpAllChildView];
+        self.backgroundColor = [UIColor clearColor];
     }
     
     return self;

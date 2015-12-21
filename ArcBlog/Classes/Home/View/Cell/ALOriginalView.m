@@ -38,6 +38,7 @@
         // 添加所有子控件
         [self setUpAllChildView];
         self.userInteractionEnabled = YES;
+        // 设置原创微博背景色为白色
         self.image = [UIImage imageWithStretchableName:@"timeline_card_top_background"];
     }
     
@@ -67,7 +68,7 @@
     // 时间
     UILabel *timeView = [[UILabel alloc] init];
     timeView.font = ALTimeFont;
-    timeView.textColor = [UIColor lightGrayColor];
+    timeView.textColor = [UIColor orangeColor];
     [self addSubview:timeView];
     _timeView = timeView;
     
@@ -103,6 +104,11 @@
     [_iconView sd_setImageWithURL:status.user.profile_image_url placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
 
     // 昵称
+    if (status.user.vip) {
+        _nameView.textColor = [UIColor redColor];
+    }else{
+        _nameView.textColor = [UIColor blackColor];
+    }
     _nameView.text = status.user.name;
     
     // vip
@@ -136,11 +142,18 @@
         _vipView.hidden = YES;
     }
     
-    // 时间
-    _timeView.frame = _statusF.originalTimeFrame;
+    // 时间  每次有新的事件都需要计算事件frame
+    ALStatus *status = _statusF.status;
+    CGFloat timeX = _nameView.frame.origin.x;
+    CGFloat timeY = CGRectGetMaxY(_nameView.frame) + ALStatusCellMargin * 0.5;
+    CGSize timeSize = [status.created_at sizeWithAttributes:@{NSFontAttributeName:ALTimeFont}];
+    _timeView.frame = (CGRect){{timeX,timeY},timeSize};
     
-    // 来源
-    _sourceView.frame = _statusF.originalSourceFrame;
+    // 来源  来源依赖时间，所以时间计算完之后就得重新计算来源的frame
+    CGFloat sourceX = CGRectGetMaxX(_timeView.frame) + ALStatusCellMargin;
+    CGFloat sourceY = timeY;
+    CGSize  sourceSize = [status.source sizeWithAttributes:@{NSFontAttributeName:ALSourceFont}];
+    _sourceView.frame = (CGRect){{sourceX,sourceY},sourceSize};
     
     // 正文
     _textView.frame = _statusF.originalTextFrame;

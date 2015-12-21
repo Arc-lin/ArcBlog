@@ -38,6 +38,7 @@
 
     // 昵称
     UILabel *nameView = [[UILabel alloc] init];
+    nameView.textColor = [UIColor blueColor];
     nameView.font = ALNameFont;
     [self addSubview:nameView];
     _nameView = nameView;

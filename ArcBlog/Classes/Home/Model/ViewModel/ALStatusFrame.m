@@ -60,17 +60,17 @@
         _originalVipFrame = CGRectMake(vipX, vipY, vipWH, vipWH);
     }
     
-    // 时间
-    CGFloat timeX = nameX;
-    CGFloat timeY = CGRectGetMaxY(_originalNameFrame) + ALStatusCellMargin * 0.5;
-    CGSize timeSize = [_status.created_at sizeWithAttributes:@{NSFontAttributeName:ALTimeFont}];
-    _originalTimeFrame = (CGRect){{timeX,timeY},timeSize};
-    
-    // 来源
-    CGFloat sourceX = CGRectGetMaxX(_originalTimeFrame) + ALStatusCellMargin;
-    CGFloat sourceY = timeY;
-    CGSize  sourceSize = [_status.source sizeWithAttributes:@{NSFontAttributeName:ALSourceFont}];
-    _originalSourceFrame = (CGRect){{sourceX,sourceY},sourceSize};
+//    // 时间
+//    CGFloat timeX = nameX;
+//    CGFloat timeY = CGRectGetMaxY(_originalNameFrame) + ALStatusCellMargin * 0.5;
+//    CGSize timeSize = [_status.created_at sizeWithAttributes:@{NSFontAttributeName:ALTimeFont}];
+//    _originalTimeFrame = (CGRect){{timeX,timeY},timeSize};
+//    
+//    // 来源
+//    CGFloat sourceX = CGRectGetMaxX(_originalTimeFrame) + ALStatusCellMargin;
+//    CGFloat sourceY = timeY;
+//    CGSize  sourceSize = [_status.source sizeWithAttributes:@{NSFontAttributeName:ALSourceFont}];
+//    _originalSourceFrame = (CGRect){{sourceX,sourceY},sourceSize};
     
     // 正文
     CGFloat textX = imageX;
@@ -83,7 +83,7 @@
     
     // 原创微博的frame
     CGFloat originX = 0;
-    CGFloat originY = 0;
+    CGFloat originY = 10;
     CGFloat originW = ALScreenW;
     CGFloat originH = CGRectGetMaxY(_originalTextFrame) + ALStatusCellMargin;
     _originalViewFrame = CGRectMake(originX, originY, originW, originH);

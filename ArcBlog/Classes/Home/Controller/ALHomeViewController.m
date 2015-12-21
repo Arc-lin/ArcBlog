@@ -68,6 +68,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tableView.backgroundColor = [UIColor lightGrayColor];
+    
+    // 取消分割线
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
     // 设置导航条内容
     [self setUpNavigationBar];
     

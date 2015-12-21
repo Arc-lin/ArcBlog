@@ -23,11 +23,15 @@
     // 字符串转换NSDate
     //    _created_at = @"Tue Mar 11 17:48:24 +0800 2015";
     
-    
     // 日期格式字符串
     NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
     fmt.dateFormat = @"EEE MMM d HH:mm:ss Z yyyy";
+    
+    // 设置格式本地化,日期格式字符串需要知道是哪个国家的日期，才知道怎么转换
+    fmt.locale = [NSLocale localeWithLocaleIdentifier:@"en_us"];
+    
     NSDate *created_at = [fmt dateFromString:_created_at];
+    
     
     if ([created_at isThisYear]) { // 今年
         
@@ -37,9 +41,9 @@
             NSDateComponents *cmp = [created_at deltaWithNow];
             
             if (cmp.hour >= 1) {
-                return [NSString stringWithFormat:@"%ld小时之前",(long)cmp.hour];
+                return [NSString stringWithFormat:@"%ld小时之前",cmp.hour];
             }else if (cmp.minute > 1){
-                return [NSString stringWithFormat:@"%ld分钟之前",(long)cmp.minute];
+                return [NSString stringWithFormat:@"%ld分钟之前",cmp.minute];
             }else{
                 return @"刚刚";
             }
@@ -65,6 +69,7 @@
     
     return _created_at;
 }
+
 
 - (void)setSource:(NSString *)source
 {
