@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class ALStatusFrame;
-@interface ALRetweetView : UIView
+@interface ALRetweetView : UIImageView
 
 @property (nonatomic,strong) ALStatusFrame *statusF;
 

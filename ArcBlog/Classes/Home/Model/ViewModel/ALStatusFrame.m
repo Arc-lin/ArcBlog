@@ -10,13 +10,6 @@
 #import "ALStatus.h"
 #import "ALUser.h"
 
-#define ALStatusCellMargin 10
-#define ALNameFont [UIFont systemFontOfSize:13]
-#define ALTimeFont [UIFont systemFontOfSize:12]
-#define ALSourceFont ALTimeFont
-#define ALTextFont [UIFont systemFontOfSize:15]
-#define ALScreenW [UIScreen mainScreen].bounds.size.width
-
 @implementation ALStatusFrame
 - (void)setStatus:(ALStatus *)status{
     
@@ -24,16 +17,26 @@
     
     // 计算原创微博
     [self setUpOriginalViewFrame];
+    
+    CGFloat toolBarY = CGRectGetMaxY(_originalViewFrame);
+    
     if (status.retweeted_status) {
+        
         // 计算转发微博
         [self setUpRetweetViewFrame];
+        
+        toolBarY = CGRectGetMaxY(_retweetViewFrame);
+    
     }
     
-    
     // 计算工具条
+    CGFloat toolBarX = 0;
+    CGFloat toolBarW = ALScreenW;
+    CGFloat toolBarH = 35;
+    _toolBarFrame = CGRectMake(toolBarX, toolBarY, toolBarW, toolBarH);
     
     // 计算cell高度
-    
+    _cellHeight = CGRectGetMaxY(_toolBarFrame);
 }
 #pragma mark - 计算原创微博
 - (void)setUpOriginalViewFrame{
@@ -86,8 +89,43 @@
     _originalViewFrame = CGRectMake(originX, originY, originW, originH);
     
 }
+
+
 #pragma mark - 计算转发微博
 - (void)setUpRetweetViewFrame{
     
+    // 昵称frame
+    CGFloat nameX = ALStatusCellMargin;
+    CGFloat nameY = nameX;
+    // 注意：一定要是转发微博的用户昵称
+    CGSize nameSize = [_status.retweeted_status.user.name sizeWithAttributes:@{NSFontAttributeName:ALNameFont}];
+    _retweetNameFrame = (CGRect){{nameX,nameY},nameSize};
+    
+    // 正文frame
+    CGFloat textX = nameX;
+    CGFloat textY = CGRectGetMaxY(_retweetNameFrame) + ALStatusCellMargin;
+    
+    CGFloat textW = ALScreenW - 2 * ALStatusCellMargin;
+    CGSize textSize = [_status.retweeted_status.text boundingRectWithSize:CGSizeMake(textW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:ALTextFont} context:nil].size;
+    _retweetTextFrame = (CGRect){{textX,textY},textSize};
+
+    // 转发微博frame
+    CGFloat retweetX = 0;
+    CGFloat retweetY = CGRectGetMaxY(_originalViewFrame);
+    CGFloat retweetW = ALScreenW;
+    CGFloat retweetH = CGRectGetMaxY(_retweetTextFrame) + ALStatusCellMargin;
+    _retweetViewFrame = CGRectMake(retweetX, retweetY, retweetW, retweetH);
+
 }
+- (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString {
+    if (jsonString == nil) {
+        return nil;
+    }
+    NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                        options:NSJSONReadingMutableContainers
+                                                          error:nil];
+    return dic;
+}
+
 @end

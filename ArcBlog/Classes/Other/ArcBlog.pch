@@ -27,3 +27,11 @@
 #endif
 
 #endif /* ArcBlog_pch */
+
+// cell的字体
+#define ALStatusCellMargin 10
+#define ALNameFont [UIFont systemFontOfSize:13]
+#define ALTimeFont [UIFont systemFontOfSize:12]
+#define ALSourceFont ALTimeFont
+#define ALTextFont [UIFont systemFontOfSize:15]
+#define ALScreenW [UIScreen mainScreen].bounds.size.width

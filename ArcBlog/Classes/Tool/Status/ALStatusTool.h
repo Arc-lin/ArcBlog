@@ -18,7 +18,7 @@
  *  failure: 请求失败的时候回调
  */
 
-+ (void)newStautsWithSinceId:(NSString *)sinceId success:(void(^)(NSArray *statuses))success failure:(void(^)(NSError *error))failure;
++ (void)newStatusWithSinceId:(NSString *)sinceId success:(void(^)(NSArray *statuses))success failure:(void(^)(NSError *error))failure;
 
 /**
  *  请求更多的微博数据

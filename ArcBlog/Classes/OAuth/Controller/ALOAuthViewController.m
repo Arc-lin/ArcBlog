@@ -47,7 +47,6 @@
     
     // 设置代理
     webView.delegate = self;
-
 }
 
 #pragma mark - UIWebVie代理

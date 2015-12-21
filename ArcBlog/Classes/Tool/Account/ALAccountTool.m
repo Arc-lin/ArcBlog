@@ -32,8 +32,7 @@ static ALAccount *_account;
 + (ALAccount *)account{
     
     if (_account == nil) {
-        
-        _account = [NSKeyedUnarchiver unarchiveObjectWithFile:ALAccountFileName];
+       _account = [NSKeyedUnarchiver unarchiveObjectWithFile:ALAccountFileName];
         
         // 判断下账号是否过期，如果过期直接返回nil
         if ([[NSDate date] compare:_account.expires_date] != NSOrderedAscending) { // 过期了

@@ -62,11 +62,11 @@
     // 选择根控制器
     // 判断下有没有授权
     // 进行授权
-    if([ALAccountTool account]){ // 已经授权
     
+    if([ALAccountTool account]){ // 已经授权
         // 选择根控制器
         [ALRootTool chooseRootViewController:self.window];
-    
+       
     }else{ //进行授权
         ALOAuthViewController *oauthVc = [[ALOAuthViewController alloc] init];
         // 设置窗口的根控制器

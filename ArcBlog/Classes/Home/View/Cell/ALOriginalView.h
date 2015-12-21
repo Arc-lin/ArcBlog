@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class  ALStatusFrame;
-@interface ALOriginalView : UIView
+@interface ALOriginalView : UIImageView
 
 @property (nonatomic,strong) ALStatusFrame *statusF;
 

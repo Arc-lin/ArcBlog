@@ -20,7 +20,7 @@
     
     //获取当前类下面的UIBarButtonItem
     UIBarButtonItem *item = [UIBarButtonItem appearanceWhenContainedIn:self, nil];
-    
+
     // 设置导航条按钮的文字颜色
     NSMutableDictionary *titleAttr = [NSMutableDictionary dictionary];
     titleAttr[NSForegroundColorAttributeName]  = [UIColor orangeColor];
@@ -62,7 +62,7 @@
 // 导航控制器跳转完成时调用
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
     
-    ALLog(@"%@",self.viewControllers[0]); // 根控制器是NavigationController的第一个子控制器
+    //ALLog(@"%@",self.viewControllers[0]); // 根控制器是NavigationController的第一个子控制器
     if (viewController == self.viewControllers[0]) { // 显示根控制器
         
         // 还原滑动返回手势的代理

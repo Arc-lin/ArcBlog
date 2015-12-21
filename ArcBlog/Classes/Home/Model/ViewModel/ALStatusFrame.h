@@ -58,4 +58,9 @@
  */
 @property (nonatomic,assign) CGRect toolBarFrame;
 
+
+/**
+ *  cell的高度
+ */
+@property (nonatomic,assign) CGFloat cellHeight;
 @end

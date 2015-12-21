@@ -16,7 +16,7 @@
 #import "ALStatusResult.h"
 @implementation ALStatusTool
 
-+ (void)newStautsWithSinceId:(NSString *)sinceId success:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure{
++ (void)newStatusWithSinceId:(NSString *)sinceId success:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure{
    
     // 创建一个参数模型
     ALStatusParam *param = [[ALStatusParam alloc] init];

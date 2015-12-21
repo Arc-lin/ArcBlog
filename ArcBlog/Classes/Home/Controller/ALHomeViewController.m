@@ -41,7 +41,7 @@
 
 @implementation ALHomeViewController
 
-- (NSMutableArray *)statuses{
+- (NSMutableArray *)statusFrames{
     
     if (_statusFrames == nil) {
         _statusFrames = [NSMutableArray array];
@@ -114,8 +114,8 @@
     
     NSString *maxIdStr = nil;
     if (self.statusFrames.count) {
-        ALStatus *s = [self.statusFrames[0] status];
-        long long maxId = [[[self.statuses lastObject] idstr] longLongValue] -1;
+        ALStatus *s = [[self.statusFrames lastObject] status];
+        long long maxId = [s.idstr longLongValue] -1;
         maxIdStr = [NSString stringWithFormat:@"%lld",maxId];
     }
     
@@ -157,11 +157,12 @@
 - (void)loadNewStatus
 {
     NSString *sinceId = nil;
-    if(self.statusFrames.count){  // 有微博数据才需要下拉刷新
+    if (self.statusFrames.count) { // 有微博数据，才需要下拉刷新
         ALStatus *s = [self.statusFrames[0] status];
-        sinceId = [self.statuses[0] idstr];
+        sinceId = s.idstr;
     }
-    [ALStatusTool newStautsWithSinceId:sinceId success:^(NSArray *statuses) { // 请求成功的block
+    
+    [ALStatusTool newStatusWithSinceId:sinceId success:^(NSArray *statuses) { // 请求成功的Block
         
         // 展示最新的微博数
         [self showNewStatusCount:statuses.count];
@@ -169,7 +170,7 @@
         // 结束下拉刷新
         [self.tableView headerEndRefreshing];
         
-        // 模型转换视图模型 ALStatus -> ALStatusFrame
+        // 模型转换视图模型 CZStatus -> CZStatusFrame
         NSMutableArray *statusFrames = [NSMutableArray array];
         for (ALStatus *status in statuses) {
             ALStatusFrame *statusF = [[ALStatusFrame alloc] init];
@@ -178,14 +179,17 @@
         }
         
         NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, statuses.count)];
-        // 把最新的微博数据插入到最前面
-        [self.statuses insertObjects:statuses atIndexes:indexSet];
+        // 把最新的微博数插入到最前面
+        [self.statusFrames insertObjects:statusFrames atIndexes:indexSet];
         
         // 刷新表格
         [self.tableView reloadData];
+        
+        
     } failure:^(NSError *error) {
         
     }];
+
     
 
     /*
@@ -234,7 +238,7 @@
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(x, y, w, h)];
     label.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"timeline_new_status_background"]];
-    
+    label.textColor = [UIColor whiteColor];
     label.text = [NSString stringWithFormat:@"最新微博数%d",count];
     
     label.textAlignment =NSTextAlignmentCenter;
@@ -265,8 +269,7 @@
     // 左边
     self.navigationItem.leftBarButtonItem  = [UIBarButtonItem barButtonItemWithImage:[UIImage imageNamed:@"navigationbar_friendsearch"] highImage:[UIImage imageNamed:@"navigationbar_friendsearch_highlighted"] target:self action:@selector(friendsearch) forControlEvents:UIControlEventTouchUpInside];
     
-    // 右边
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem barButtonItemWithImage:[UIImage imageNamed:@"navigationbar_pop"] highImage:[UIImage imageNamed:@"navigationbar_pop_highlighted"] target:self action:@selector(pop) forControlEvents:UIControlEventTouchUpInside];
+    // 右边     self.navigationItem.rightBarButtonItem = [UIBarButtonItem barButtonItemWithImage:[UIImage imageNamed:@"navigationbar_pop"] highImage:[UIImage imageNamed:@"navigationbar_pop_highlighted"] target:self action:@selector(pop) forControlEvents:UIControlEventTouchUpInside];
     
    // titleView
     ALTitleButton *titleButton = [ALTitleButton buttonWithType:UIButtonTypeCustom];
@@ -349,6 +352,7 @@
     //获取status模型
     ALStatusFrame *statusF = self.statusFrames[indexPath.row];
 
+    // 给cell传递模型
     cell.statusF = statusF;
     
     // 用户昵称
@@ -361,6 +365,10 @@
 
 // 返回cell高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 100;
+
+    //获取status模型
+    ALStatusFrame *statusF = self.statusFrames[indexPath.row];
+    return statusF.cellHeight;
+
 }
 @end

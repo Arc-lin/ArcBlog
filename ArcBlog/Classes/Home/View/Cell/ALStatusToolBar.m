@@ -16,6 +16,7 @@
         // 添加所有子控件
         [self setUpAllChildView];
         
+        self.backgroundColor = [UIColor redColor];
     }
     
     return self;
