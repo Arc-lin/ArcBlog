@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ALStatusToolBar : UIView
+@class ALStatus;
+@interface ALStatusToolBar : UIImageView
+
+@property (nonatomic,strong) ALStatus *status;
 
 @end

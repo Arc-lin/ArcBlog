@@ -20,6 +20,8 @@
     4. 计算每个控件的位置，如果以后碰见空间的内容是根据模型决定的，马上就搞个ViewModel模型（模型+控件的frame）
     5. 模型转视图模型
     6. 给控件赋值视图模型
+    7. 调节界面（文字大小和颜色）
+    8. 一个结构一个结构处理
  */
 @interface ALStatusCell()
 
@@ -97,7 +99,8 @@
     _retweetView.frame = statusF.retweetViewFrame;
     _retweetView.statusF = statusF;
     
-    // 赋值 
+    // 设置工具条frame
     _toolbar.frame = statusF.toolBarFrame;
+    _toolbar.status = statusF.status;
 }
 @end
