@@ -32,27 +32,27 @@
 // 什么时候调用：程序一启动的时候就会把所有的类加载进内存
 // 作用：加载类的时候调用
 // appearance 只要一个类遵守UIAppearance 就能获取到全局的外观，UIView
+/*
+    + (void)load{
 
-//+ (void)load{
-//
-//    //获取所有的tabBarItem外观标识
-////    UITabBarItem *item  = [UITabBarItem appearance];
-//    //获取当前这个类下面的所有tabBarItem
-//    UITabBarItem *item = [UITabBarItem appearanceWhenContainedIn:self, nil];
-//    NSMutableDictionary *att = [NSMutableDictionary dictionary];
-//    att[NSForegroundColorAttributeName] = [UIColor orangeColor];
-//    //同下
-//    //[att setObject:[UIColor orangeColor] forKey:NSForegroundColorAttributeName];
-//    [item setTitleTextAttributes:att forState:UIControlStateSelected];
-//
-//}
-//
-//// 当第一次使用这个类或者子类的时候调用
-//// 作用：初始化类
-//+ (void)initialize{
-//   // NSLog(@"%s",__func__);
-//}
+        //获取所有的tabBarItem外观标识
+    //    UITabBarItem *item  = [UITabBarItem appearance];
+        //获取当前这个类下面的所有tabBarItem
+        UITabBarItem *item = [UITabBarItem appearanceWhenContainedIn:self, nil];
+        NSMutableDictionary *att = [NSMutableDictionary dictionary];
+        att[NSForegroundColorAttributeName] = [UIColor orangeColor];
+        //同下
+        //[att setObject:[UIColor orangeColor] forKey:NSForegroundColorAttributeName];
+        [item setTitleTextAttributes:att forState:UIControlStateSelected];
 
+    }
+
+    // 当第一次使用这个类或者子类的时候调用
+    // 作用：初始化类
+    + (void)initialize{
+       // NSLog(@"%s",__func__);
+    }
+*/
 - (NSMutableArray *)items{
     
     if(_items == nil){

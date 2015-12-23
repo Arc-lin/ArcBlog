@@ -26,7 +26,6 @@
 - (NSMutableArray *)btns{
     
     if (_btns == nil) {
-        
         _btns =[NSMutableArray array];
     }
     return _btns;

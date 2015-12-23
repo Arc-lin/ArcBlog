@@ -60,17 +60,7 @@
         _originalVipFrame = CGRectMake(vipX, vipY, vipWH, vipWH);
     }
     
-//    // 时间
-//    CGFloat timeX = nameX;
-//    CGFloat timeY = CGRectGetMaxY(_originalNameFrame) + ALStatusCellMargin * 0.5;
-//    CGSize timeSize = [_status.created_at sizeWithAttributes:@{NSFontAttributeName:ALTimeFont}];
-//    _originalTimeFrame = (CGRect){{timeX,timeY},timeSize};
-//    
-//    // 来源
-//    CGFloat sourceX = CGRectGetMaxX(_originalTimeFrame) + ALStatusCellMargin;
-//    CGFloat sourceY = timeY;
-//    CGSize  sourceSize = [_status.source sizeWithAttributes:@{NSFontAttributeName:ALSourceFont}];
-//    _originalSourceFrame = (CGRect){{sourceX,sourceY},sourceSize};
+    // 由于“时间”和“来源”的frame会根据文字的改变而改变，所以应该在获取到数据的时候就计算出来，不在这里计算
     
     // 正文
     CGFloat textX = imageX;
@@ -81,15 +71,45 @@
 //    CGSize textSize = [_status.text sizeWithFont:ALTextFont constrainedToSize:CGSizeMake(textW, MAXFLOAT)];
     _originalTextFrame = (CGRect){{textX,textY},textSize};
     
+    // 没有配图时 原创微博的 高度
+    CGFloat originH = CGRectGetMaxY(_originalTextFrame) + ALStatusCellMargin;
+    
+    // 配图
+    if (_status.pic_urls.count) {
+        CGFloat photosX = ALStatusCellMargin;
+        CGFloat photosY = CGRectGetMaxY(_originalTextFrame) + ALStatusCellMargin;
+        CGSize  photosSize = [self photoSizeWithCount:(int)_status.pic_urls.count];
+
+        _originalPhotosFrame = (CGRect){{photosX,photosY},photosSize};
+        
+        // 没有配图时 原创微博的 高度
+        originH = CGRectGetMaxY(_originalPhotosFrame) + ALStatusCellMargin;
+    }
+    
+    
     // 原创微博的frame
     CGFloat originX = 0;
     CGFloat originY = 10;
     CGFloat originW = ALScreenW;
-    CGFloat originH = CGRectGetMaxY(_originalTextFrame) + ALStatusCellMargin;
+    
     _originalViewFrame = CGRectMake(originX, originY, originW, originH);
     
 }
 
+#pragma mark - 计算配图的尺寸
+- (CGSize)photoSizeWithCount:(int)count{
+    
+    // 获取总列数
+    int cols = count == 4 ? 2 : 3;
+    // 获取总行数
+    int rols = (count - 1) / cols + 1;
+
+    CGFloat photoWH = 70;
+    CGFloat w = cols * photoWH + (cols - 1) * ALStatusCellMargin;
+    CGFloat h = rols * photoWH + (rols - 1) * ALStatusCellMargin;
+    
+    return  CGSizeMake(w, h);
+}
 
 #pragma mark - 计算转发微博
 - (void)setUpRetweetViewFrame{
@@ -108,12 +128,28 @@
     CGFloat textW = ALScreenW - 2 * ALStatusCellMargin;
     CGSize textSize = [_status.retweeted_status.text boundingRectWithSize:CGSizeMake(textW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:ALTextFont} context:nil].size;
     _retweetTextFrame = (CGRect){{textX,textY},textSize};
-
+    
+    // 没有配图时 原创微博的 高度
+    CGFloat retweetH = CGRectGetMaxY(_retweetTextFrame) + ALStatusCellMargin;
+    
+    // 配图
+    int count = (int)_status.retweeted_status.pic_urls.count;
+    if (count) {
+        CGFloat photosX = ALStatusCellMargin;
+        CGFloat photosY = CGRectGetMaxY(_retweetTextFrame) + ALStatusCellMargin;
+        CGSize  photosSize = [self photoSizeWithCount:count];
+        
+        _retweetPhotosFrame = (CGRect){{photosX,photosY},photosSize};
+        
+        // 没有配图时 原创微博的 高度
+        retweetH = CGRectGetMaxY(_retweetPhotosFrame) + ALStatusCellMargin;
+    }
+    
     // 转发微博frame
     CGFloat retweetX = 0;
     CGFloat retweetY = CGRectGetMaxY(_originalViewFrame);
     CGFloat retweetW = ALScreenW;
-    CGFloat retweetH = CGRectGetMaxY(_retweetTextFrame) + ALStatusCellMargin;
+    
     _retweetViewFrame = CGRectMake(retweetX, retweetY, retweetW, retweetH);
 
 }

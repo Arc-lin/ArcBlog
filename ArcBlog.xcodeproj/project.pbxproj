@@ -90,6 +90,7 @@
 		35715E821BFCCA360051914A /* ALHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35715E811BFCCA360051914A /* ALHomeViewController.m */; };
 		35815D5D1C1840A100144C53 /* ALStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 35815D5C1C1840A100144C53 /* ALStatus.m */; };
 		359A2BB91C0345F1000A21A2 /* ALOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 359A2BB81C0345F1000A21A2 /* ALOAuthViewController.m */; };
+		35A610241C2A4BCD00330E25 /* ALPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A610231C2A4BCD00330E25 /* ALPhotosView.m */; };
 		35AD0F231C2816F8005D723D /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 35AD0B251C27F40C005D723D /* icon.png */; };
 		35AD0F241C2816F8005D723D /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35AD0B261C27F40C005D723D /* icon@2x.png */; };
 		35AD0F251C2816F8005D723D /* icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35AD0B271C27F40C005D723D /* icon@3x.png */; };
@@ -481,6 +482,8 @@
 		35815D5C1C1840A100144C53 /* ALStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALStatus.m; sourceTree = "<group>"; };
 		359A2BB71C0345F1000A21A2 /* ALOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALOAuthViewController.h; sourceTree = "<group>"; };
 		359A2BB81C0345F1000A21A2 /* ALOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALOAuthViewController.m; sourceTree = "<group>"; };
+		35A610221C2A4BCD00330E25 /* ALPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPhotosView.h; sourceTree = "<group>"; };
+		35A610231C2A4BCD00330E25 /* ALPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPhotosView.m; sourceTree = "<group>"; };
 		35AD0B251C27F40C005D723D /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		35AD0B261C27F40C005D723D /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		35AD0B271C27F40C005D723D /* icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@3x.png"; sourceTree = "<group>"; };
@@ -2156,6 +2159,8 @@
 				35DA486D1C24659B008AB7D2 /* ALRetweetView.m */,
 				35DA486F1C2465C6008AB7D2 /* ALStatusToolBar.h */,
 				35DA48701C2465C6008AB7D2 /* ALStatusToolBar.m */,
+				35A610221C2A4BCD00330E25 /* ALPhotosView.h */,
+				35A610231C2A4BCD00330E25 /* ALPhotosView.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2521,6 +2526,7 @@
 				3516C79E1C049CBD007237B4 /* NSObject+MJKeyValue.m in Sources */,
 				3516C7951C049CBC007237B4 /* MBProgressHUD+MJ.m in Sources */,
 				3555B3341C1EB5AE00ECDDAF /* ALAccountParam.m in Sources */,
+				35A610241C2A4BCD00330E25 /* ALPhotosView.m in Sources */,
 				3516C7B71C049CBD007237B4 /* SDWebImagePrefetcher.m in Sources */,
 				354193761C1DA85D00BF8B90 /* ALStatusParam.m in Sources */,
 				35C79C891BFF065600C7A8E7 /* ALProfileViewController.m in Sources */,

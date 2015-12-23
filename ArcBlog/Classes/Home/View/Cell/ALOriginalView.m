@@ -9,6 +9,7 @@
 #import "ALOriginalView.h"
 #import "ALStatusFrame.h"
 #import "ALStatus.h"
+#import "ALPhotosView.h"
 
 #import "UIImageView+WebCache.h"
 
@@ -26,6 +27,7 @@
 
 @property (nonatomic,weak) UILabel *textView; // 正文
 
+@property (nonatomic,weak) ALPhotosView *photosView; // 配图
 
 @end
 
@@ -84,6 +86,11 @@
     textView.numberOfLines = 0;
     [self addSubview:textView];
     _textView = textView;
+    
+    // 配图
+    ALPhotosView *photosView = [[ALPhotosView alloc] init];
+    [self addSubview:photosView];
+    _photosView = photosView;
 }
 
 - (void)setStatusF:(ALStatusFrame *)statusF{
@@ -124,6 +131,9 @@
     // 正文
     _textView.text = status.text;
     
+#warning  配图数据
+    // 配图
+    
 }
 
 - (void)setUpFrame{
@@ -157,5 +167,9 @@
     
     // 正文
     _textView.frame = _statusF.originalTextFrame;
+    
+    // 配图
+    _photosView.frame = _statusF.originalPhotosFrame;
+    
 }
 @end

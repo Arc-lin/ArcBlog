@@ -41,6 +41,9 @@
 // 正文frame
 @property (nonatomic,assign) CGRect originalTextFrame;
 
+// 配图frame
+@property (nonatomic,assign) CGRect originalPhotosFrame;
+
 /**
  *  转发微博
  */
@@ -52,6 +55,9 @@
 
 // 正文frame
 @property (nonatomic,assign) CGRect retweetTextFrame;
+
+// 配图frame
+@property (nonatomic,assign) CGRect retweetPhotosFrame;
 
 /**
  *  工具条

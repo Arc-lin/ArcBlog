@@ -9,12 +9,15 @@
 #import "ALRetweetView.h"
 #import "ALStatus.h"
 #import "ALStatusFrame.h"
+#import "ALPhotosView.h"
 
 @interface ALRetweetView()
 
 @property (nonatomic,weak) UILabel *nameView; // 昵称
 
 @property (nonatomic,weak) UILabel *textView; // 正文
+
+@property (nonatomic,weak) ALPhotosView *photosView; // 配图
 
 @end
 
@@ -26,7 +29,7 @@
         // 添加所有子控件
         [self setUpAllChildView];
         self.userInteractionEnabled = YES;
-        self.image = [UIImage imageWithStretchableName:@"timeline_reweet_background"];
+        self.image = [UIImage imageWithStretchableName:@"timeline_retweet_background"];
     }
     
     return self;
@@ -50,6 +53,11 @@
     [self addSubview:textView];
     _textView = textView;
     
+    // 配图
+    ALPhotosView *photosView = [[ALPhotosView alloc] init];
+    [self addSubview:photosView];
+    _photosView = photosView;
+    
 }
 
 - (void)setStatusF:(ALStatusFrame *)statusF{
@@ -65,6 +73,11 @@
     // 正文
     _textView.frame = statusF.retweetTextFrame;
     _textView.text = status.retweeted_status.text;
+    
+    // 配图
+    _photosView.frame = statusF.retweetPhotosFrame;
+#warning TODO:配图数据
+    
     
 }
 @end
