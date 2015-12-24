@@ -10,4 +10,6 @@
 
 @interface ALPhotosView : UIView
 
+@property (nonatomic,strong) NSArray *pic_urls;
+
 @end

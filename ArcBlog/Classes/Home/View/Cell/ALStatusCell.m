@@ -11,7 +11,7 @@
 #import "ALRetweetView.h"
 #import "ALStatusToolBar.h"
 #import "ALStatusFrame.h"
-
+#import "ALStatus.h"
 /**
  *  复杂界面开发步骤
     1. 按照业务逻辑划分界面结构（原创，转发，工具条）
@@ -94,6 +94,16 @@
     // 设置原创微博的frame
     _originalView.frame = statusF.originalViewFrame;
     _originalView.statusF = statusF;
+    
+    if (statusF.status.retweeted_status) {
+        
+        // 设置转发微博frame
+        _retweetView.frame = statusF.retweetViewFrame;
+        _retweetView.statusF = statusF;
+        _retweetView.hidden = NO;
+    }else{
+        _retweetView.hidden = YES;
+    }
     
     // 设置原创微博frame
     _retweetView.frame = statusF.retweetViewFrame;

@@ -131,9 +131,8 @@
     // 正文
     _textView.text = status.text;
     
-#warning  配图数据
     // 配图
-    
+    _photosView.pic_urls = status.pic_urls; 
 }
 
 - (void)setUpFrame{
