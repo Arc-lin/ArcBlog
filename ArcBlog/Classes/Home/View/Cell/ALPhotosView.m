@@ -9,6 +9,8 @@
 #import "ALPhotosView.h"
 #import "ALPhoto.h"
 #import "UIImageView+WebCache.h"
+#import "MJPhotoBrowser.h"
+#import "MJPhoto.h"
 
 @implementation ALPhotosView
 
@@ -29,10 +31,44 @@
     for (int i = 0; i < 9; i++) {
         UIImageView *imageView = [[UIImageView alloc] init];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
-        // 裁剪图片
+        // 裁剪图片，超出控件的部分裁减掉
         imageView.clipsToBounds = YES;
+        imageView.tag = i;
+        imageView.userInteractionEnabled = YES;
+        
+        // 添加敲击手势
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+        [imageView addGestureRecognizer:tap];
         [self addSubview:imageView];
     }
+}
+
+#pragma mark - 点击图片的时候调用
+- (void)tap:(UITapGestureRecognizer *)tap
+{
+    UIImageView *tapView = (UIImageView *)tap.view;
+
+    // ALPhoto -> MJPhoto
+    int i = 0;
+    NSMutableArray *arrM = [NSMutableArray array];
+    for (ALPhoto *photo in _pic_urls) {
+        MJPhoto *p = [[MJPhoto alloc] init];
+        NSString *urlStr = photo.thumbnail_pic.absoluteString;
+        urlStr = [urlStr stringByReplacingOccurrencesOfString:@"thumbnail" withString:@"bmiddle"];
+        p.url = [NSURL URLWithString:urlStr];
+        p.index = i;
+        p.srcImageView = tapView;
+        [arrM addObject:p];
+        i++;
+    }
+    
+    // 弹出图片浏览器
+    // 创建浏览器对象
+    MJPhotoBrowser *browser = [[MJPhotoBrowser alloc] init];
+    // MJPhoto
+    browser.photos = arrM;
+    browser.currentPhotoIndex = tapView.tag;
+    [browser show];
 }
 
 - (void)setPic_urls:(NSArray *)pic_urls
