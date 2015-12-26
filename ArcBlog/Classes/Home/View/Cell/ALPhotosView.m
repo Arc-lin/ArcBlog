@@ -11,6 +11,7 @@
 #import "UIImageView+WebCache.h"
 #import "MJPhotoBrowser.h"
 #import "MJPhoto.h"
+#import "ALPhotoView.h"
 
 @implementation ALPhotosView
 
@@ -29,12 +30,9 @@
 - (void)setUpAllChildView
 {
     for (int i = 0; i < 9; i++) {
-        UIImageView *imageView = [[UIImageView alloc] init];
-        imageView.contentMode = UIViewContentModeScaleAspectFill;
-        // 裁剪图片，超出控件的部分裁减掉
-        imageView.clipsToBounds = YES;
+        ALPhotoView *imageView = [[ALPhotoView alloc] init];
+       
         imageView.tag = i;
-        imageView.userInteractionEnabled = YES;
         
         // 添加敲击手势
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
@@ -78,7 +76,7 @@
     int count = (int)self.subviews.count;
     for (int i = 0; i < count; i++) {
         
-        UIImageView *imageView = self.subviews[i];
+        ALPhotoView *imageView = self.subviews[i];
         
         if (i < _pic_urls.count) { // 显示
             
@@ -87,8 +85,8 @@
             // 获取
             ALPhoto *photo = _pic_urls[i];
             
-            // 赋值
-            [imageView sd_setImageWithURL:photo.thumbnail_pic placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+            imageView.photo = photo;
+           
 
         }else{
             imageView.hidden = YES;
