@@ -15,6 +15,8 @@
 #import "ALProfileViewController.h"
 #import "ALUserTool.h"
 #import "ALUserResult.h"
+#import "ALComposeViewController.h"
+
 @interface ALTabBarController ()<ALTabBarDelegate>
 
 @property (nonatomic,strong) NSMutableArray *items;
@@ -134,7 +136,15 @@
     self.selectedIndex = index;
 }
 
-
+// 点击加号按钮的时候调用
+- (void)tabBarDidClickPlusButton:(ALTabBar *)tabBar{
+    
+    // 创建发送微博控制器
+    ALComposeViewController *composeVc = [[ALComposeViewController alloc] init];
+    ALNavigationController *nav = [[ALNavigationController alloc] initWithRootViewController:composeVc];
+    [self presentViewController:nav animated:YES completion:nil];
+    
+}
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     

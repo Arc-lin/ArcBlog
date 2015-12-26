@@ -90,6 +90,7 @@
 		35715E821BFCCA360051914A /* ALHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35715E811BFCCA360051914A /* ALHomeViewController.m */; };
 		35815D5D1C1840A100144C53 /* ALStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 35815D5C1C1840A100144C53 /* ALStatus.m */; };
 		359343451C2E565400D238E9 /* ALPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 359343441C2E565400D238E9 /* ALPhotoView.m */; };
+		3593434C1C2E5D5E00D238E9 /* ALComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3593434B1C2E5D5E00D238E9 /* ALComposeViewController.m */; };
 		359A2BB91C0345F1000A21A2 /* ALOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 359A2BB81C0345F1000A21A2 /* ALOAuthViewController.m */; };
 		35A610241C2A4BCD00330E25 /* ALPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A610231C2A4BCD00330E25 /* ALPhotosView.m */; };
 		35AD0F231C2816F8005D723D /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 35AD0B251C27F40C005D723D /* icon.png */; };
@@ -483,6 +484,8 @@
 		35815D5C1C1840A100144C53 /* ALStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALStatus.m; sourceTree = "<group>"; };
 		359343431C2E565400D238E9 /* ALPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPhotoView.h; sourceTree = "<group>"; };
 		359343441C2E565400D238E9 /* ALPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPhotoView.m; sourceTree = "<group>"; };
+		3593434A1C2E5D5E00D238E9 /* ALComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALComposeViewController.h; sourceTree = "<group>"; };
+		3593434B1C2E5D5E00D238E9 /* ALComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALComposeViewController.m; sourceTree = "<group>"; };
 		359A2BB71C0345F1000A21A2 /* ALOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALOAuthViewController.h; sourceTree = "<group>"; };
 		359A2BB81C0345F1000A21A2 /* ALOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALOAuthViewController.m; sourceTree = "<group>"; };
 		35A610221C2A4BCD00330E25 /* ALPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPhotosView.h; sourceTree = "<group>"; };
@@ -1177,6 +1180,7 @@
 		35390F101BFC46B6006584F8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				359343461C2E5D3B00D238E9 /* Compose */,
 				35E70FE91C12BFEF002C5B90 /* Tool */,
 				359A2BB31C03458F000A21A2 /* OAuth */,
 				355FDC4C1C01F7F1007132A3 /* NewFeature */,
@@ -1540,6 +1544,39 @@
 				356C46081C1AFF4800F15758 /* ALHttpTool.m */,
 			);
 			path = Http;
+			sourceTree = "<group>";
+		};
+		359343461C2E5D3B00D238E9 /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				359343471C2E5D3B00D238E9 /* Controller */,
+				359343481C2E5D3B00D238E9 /* Model */,
+				359343491C2E5D3B00D238E9 /* View */,
+			);
+			path = Compose;
+			sourceTree = "<group>";
+		};
+		359343471C2E5D3B00D238E9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3593434A1C2E5D5E00D238E9 /* ALComposeViewController.h */,
+				3593434B1C2E5D5E00D238E9 /* ALComposeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		359343481C2E5D3B00D238E9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		359343491C2E5D3B00D238E9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		359A2BB31C03458F000A21A2 /* OAuth */ = {
@@ -2561,6 +2598,7 @@
 				35715E7C1BFCB7E40051914A /* ALBadgeView.m in Sources */,
 				3516C7941C049CBC007237B4 /* AFURLSessionManager.m in Sources */,
 				356DD28F1BFE0E5600C0294B /* UIBarButtonItem+Item.m in Sources */,
+				3593434C1C2E5D5E00D238E9 /* ALComposeViewController.m in Sources */,
 				3516C7AE1C049CBD007237B4 /* UIView+MJExtension.m in Sources */,
 				355FDC551C01FDF8007132A3 /* ALNewFeatureCell.m in Sources */,
 				3516C79F1C049CBD007237B4 /* MJPhoto.m in Sources */,

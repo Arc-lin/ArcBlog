@@ -14,6 +14,10 @@
 
 @optional
 - (void)tabBar:(ALTabBar *)tabBar didClickButton:(NSInteger)index;
+/**
+ *  点击加号按钮的时候调用
+ */
+- (void)tabBarDidClickPlusButton:(ALTabBar *)tabBar;
 
 @end
 

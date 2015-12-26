@@ -26,6 +26,12 @@
     titleAttr[NSForegroundColorAttributeName]  = [UIColor orangeColor];
     [item setTitleTextAttributes:titleAttr forState:UIControlStateNormal];
     
+    // 注意：导航条上的按钮不可用，用模型的文字属性无法设置,同一个按钮的相同属性的不同值无法设置，只能用UIButton
+    // 设置不可用
+//    titleAttr = [NSMutableDictionary dictionary];
+//    titleAttr[NSForegroundColorAttributeName]  = [UIColor lightGrayColor];
+//    [item setTitleTextAttributes:titleAttr forState:UIControlStateDisabled];
+    
 }
 
 

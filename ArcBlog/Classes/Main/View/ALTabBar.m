@@ -77,10 +77,13 @@
         [btn setImage:[UIImage imageNamed:@"tabbar_compose_background_icon_add"] forState:UIControlStateHighlighted];
         [btn setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button"] forState:UIControlStateNormal];
         [btn setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button_highlighted"] forState:UIControlStateHighlighted];
-        
-        //默认按钮的尺寸跟背景图片一样大
-        //sizeToFit: 默认会根据按钮的背景图片或者image和文字计算出按钮最合适的尺寸
+
+        // 默认按钮的尺寸跟背景图片一样大
+        // sizeToFit: 默认会根据按钮的背景图片或者image和文字计算出按钮最合适的尺寸
         [btn sizeToFit];
+        
+        // 监听按钮的点击
+        [btn addTarget:self action:@selector(plusClick) forControlEvents:UIControlEventTouchUpInside];
         
         _plusButton = btn;
         [self addSubview:_plusButton];
@@ -89,6 +92,14 @@
     return _plusButton;
 }
 
+// 点击加号按钮的时候调用
+- (void)plusClick
+{
+    // modal出控制器
+    if([_delegate respondsToSelector:@selector(tabBarDidClickPlusButton:)]){
+        [_delegate tabBarDidClickPlusButton:self];
+    }
+}
 
 // self.items UITabBarItem模型，有多少个子控制器就有多少个UITabBarItem模型
 // 调整子控件的位置
