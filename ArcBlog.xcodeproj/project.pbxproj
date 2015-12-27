@@ -273,6 +273,7 @@
 		35AD0FD41C281728005D723D /* tabbar_profile_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35AD0CD21C27F40D005D723D /* tabbar_profile_selected@3x.png */; };
 		35AD0FD51C2817C4005D723D /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3516C7651C049CBC007237B4 /* UIScrollView+MJExtension.m */; };
 		35AD960A1C22DDC200D66A2D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35AD96091C22DDC200D66A2D /* AVFoundation.framework */; };
+		35B305511C3012A5004269F3 /* ALComposeToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B305501C3012A5004269F3 /* ALComposeToolBar.m */; };
 		35B90E871C01848D00FED793 /* ALTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B90E851C01848D00FED793 /* ALTwoViewController.m */; };
 		35C79C861BFF035F00C7A8E7 /* ALMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C79C851BFF035F00C7A8E7 /* ALMessageViewController.m */; };
 		35C79C891BFF065600C7A8E7 /* ALProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C79C881BFF065600C7A8E7 /* ALProfileViewController.m */; };
@@ -907,6 +908,8 @@
 		35AD0CD21C27F40D005D723D /* tabbar_profile_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_profile_selected@3x.png"; sourceTree = "<group>"; };
 		35AD96051C22C5D700D66A2D /* silence.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = silence.mp3; sourceTree = "<group>"; };
 		35AD96091C22DDC200D66A2D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		35B3054F1C3012A5004269F3 /* ALComposeToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALComposeToolBar.h; sourceTree = "<group>"; };
+		35B305501C3012A5004269F3 /* ALComposeToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALComposeToolBar.m; sourceTree = "<group>"; };
 		35B90E841C01848D00FED793 /* ALTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTwoViewController.h; sourceTree = "<group>"; };
 		35B90E851C01848D00FED793 /* ALTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALTwoViewController.m; sourceTree = "<group>"; };
 		35B90E861C01848D00FED793 /* ALTwoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALTwoViewController.xib; sourceTree = "<group>"; };
@@ -1580,6 +1583,8 @@
 			children = (
 				35F293C01C2F9BA5001B34BE /* ALTextView.h */,
 				35F293C11C2F9BA5001B34BE /* ALTextView.m */,
+				35B3054F1C3012A5004269F3 /* ALComposeToolBar.h */,
+				35B305501C3012A5004269F3 /* ALComposeToolBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2582,6 +2587,7 @@
 				3516C7AB1C049CBD007237B4 /* MJRefreshHeaderView.m in Sources */,
 				3516C79D1C049CBC007237B4 /* NSObject+MJIvar.m in Sources */,
 				3516C7AA1C049CBD007237B4 /* MJRefreshFooterView.m in Sources */,
+				35B305511C3012A5004269F3 /* ALComposeToolBar.m in Sources */,
 				356DD28C1BFE0A6000C0294B /* ALTitleButton.m in Sources */,
 				3516C7991C049CBC007237B4 /* MJFoundation.m in Sources */,
 				3516C7A31C049CBD007237B4 /* MJPhotoProgressView.m in Sources */,

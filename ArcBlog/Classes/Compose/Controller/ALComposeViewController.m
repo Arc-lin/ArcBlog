@@ -8,10 +8,12 @@
 
 #import "ALComposeViewController.h"
 #import "ALTextView.h"
+#import "ALComposeToolBar.h"
 
 @interface ALComposeViewController ()<UITextViewDelegate>
 
 @property (nonatomic,weak) ALTextView *textView;
+@property (nonatomic,weak) ALComposeToolBar *toolBar;
 
 @end
 
@@ -27,6 +29,41 @@
     
     // 添加textView
     [self setUpTextView];
+    
+    // 添加工具条
+    [self setUpToolBar];
+    
+    // 监听键盘的弹出
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardFrameChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
+}
+
+
+#pragma mark - 键盘的frame改变的时候调用
+- (void)keyboardFrameChange:(NSNotification *)note
+{
+    // 键盘弹出所花的时间
+    CGFloat durtion = [note.userInfo [UIKeyboardAnimationDurationUserInfoKey] floatValue];
+    
+    // 获取键盘的frame
+    CGRect frame = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    if (frame.origin.y == self.view.height) { // 没有弹出键盘
+        // 恢复原来的样子
+        _toolBar.transform = CGAffineTransformIdentity;
+    }else { // 弹出键盘
+        // 工具条往上移动258
+        [UIView animateWithDuration:durtion animations:^{
+            _toolBar.transform = CGAffineTransformMakeTranslation(0, -frame.size.height);
+        }];
+        
+    }
+}
+- (void)setUpToolBar
+{
+    CGFloat h = 35;
+    CGFloat y = self.view.height - h;
+    ALComposeToolBar *toolBar = [[ALComposeToolBar alloc] initWithFrame:CGRectMake(0, y, self.view.width, h)];
+    _toolBar = toolBar;
+    [self.view addSubview:toolBar];
 }
 
 #pragma mark - 添加textView
