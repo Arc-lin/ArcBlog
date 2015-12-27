@@ -282,6 +282,7 @@
 		35DA486E1C24659B008AB7D2 /* ALRetweetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DA486D1C24659B008AB7D2 /* ALRetweetView.m */; };
 		35DA48711C2465C6008AB7D2 /* ALStatusToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DA48701C2465C6008AB7D2 /* ALStatusToolBar.m */; };
 		35E70FED1C12C008002C5B90 /* ALAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E70FEC1C12C008002C5B90 /* ALAccountTool.m */; };
+		35F293C21C2F9BA5001B34BE /* ALTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F293C11C2F9BA5001B34BE /* ALTextView.m */; };
 		35F7D4981C1847B800DCEA8D /* ALUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F7D4971C1847B800DCEA8D /* ALUser.m */; };
 		35F7D49B1C1848D700DCEA8D /* ALPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F7D49A1C1848D700DCEA8D /* ALPhoto.m */; };
 /* End PBXBuildFile section */
@@ -926,6 +927,8 @@
 		35DA48701C2465C6008AB7D2 /* ALStatusToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALStatusToolBar.m; sourceTree = "<group>"; };
 		35E70FEB1C12C008002C5B90 /* ALAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAccountTool.h; sourceTree = "<group>"; };
 		35E70FEC1C12C008002C5B90 /* ALAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALAccountTool.m; sourceTree = "<group>"; };
+		35F293C01C2F9BA5001B34BE /* ALTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTextView.h; sourceTree = "<group>"; };
+		35F293C11C2F9BA5001B34BE /* ALTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALTextView.m; sourceTree = "<group>"; };
 		35F7D4961C1847B800DCEA8D /* ALUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALUser.h; sourceTree = "<group>"; };
 		35F7D4971C1847B800DCEA8D /* ALUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALUser.m; sourceTree = "<group>"; };
 		35F7D4991C1848D700DCEA8D /* ALPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPhoto.h; sourceTree = "<group>"; };
@@ -1575,6 +1578,8 @@
 		359343491C2E5D3B00D238E9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				35F293C01C2F9BA5001B34BE /* ALTextView.h */,
+				35F293C11C2F9BA5001B34BE /* ALTextView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2606,6 +2611,7 @@
 				356DD2921BFE1A0500C0294B /* ALPopMenu.m in Sources */,
 				35715E791BFCB78F0051914A /* ALTabBarButton.m in Sources */,
 				3516C7B21C049CBD007237B4 /* SDWebImageCompat.m in Sources */,
+				35F293C21C2F9BA5001B34BE /* ALTextView.m in Sources */,
 				356DD27C1BFDC1EF00C0294B /* ALNavigationController.m in Sources */,
 				3516C7A41C049CBD007237B4 /* MJPhotoToolbar.m in Sources */,
 				35390F341BFC46B6006584F8 /* main.m in Sources */,
