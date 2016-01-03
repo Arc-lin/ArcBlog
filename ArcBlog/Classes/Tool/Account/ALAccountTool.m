@@ -13,7 +13,6 @@
 #import "ALAccountParam.h"
 #import "MJExtension.h"
 #define ALAccountFileName [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@"account.data"]
-//#define ALAccountFileName [NSHomeDirectory() stringByAppendingPathComponent:@"Document/account.data"]
 #define ALAuthorizeBaseUrl @"https://api.weibo.com/oauth2/authorize"
 #define ALClient_id @"2012167609"
 #define ALRedirect_uri @"http://www.baidu.com"

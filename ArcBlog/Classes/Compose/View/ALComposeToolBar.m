@@ -44,6 +44,7 @@
     [btn setImage:highImage forState:UIControlStateHighlighted];
     
     [btn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    btn.tag = self.subviews.count;
     
     [self addSubview:btn];
 }
@@ -52,6 +53,9 @@
 {
     // 点击工具条的时候
     
+    if ([_delegate respondsToSelector:@selector(composeToolBar:didClickBtn:)]) {
+        [_delegate composeToolBar:self didClickBtn:button.tag];
+    }
 
 }
 

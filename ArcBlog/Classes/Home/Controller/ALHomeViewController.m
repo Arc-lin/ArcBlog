@@ -170,12 +170,12 @@
     [ALStatusTool newStatusWithSinceId:sinceId success:^(NSArray *statuses) { // 请求成功的Block
         
         // 展示最新的微博数
-        [self showNewStatusCount:statuses.count];
+        [self showNewStatusCount:(int)statuses.count];
         
         // 结束下拉刷新
         [self.tableView headerEndRefreshing];
         
-        // 模型转换视图模型 CZStatus -> CZStatusFrame
+        // 模型转换视图模型 ALStatus -> ALStatusFrame
         NSMutableArray *statusFrames = [NSMutableArray array];
         for (ALStatus *status in statuses) {
             ALStatusFrame *statusF = [[ALStatusFrame alloc] init];
@@ -184,7 +184,7 @@
         }
         
         NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, statuses.count)];
-        // 把最新的微博数插入到最前面
+        // 把最新的微博插入到最前面
         [self.statusFrames insertObjects:statusFrames atIndexes:indexSet];
         
         // 刷新表格

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		351133911C396F5800C8CD8D /* ALComposePhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 351133901C396F5800C8CD8D /* ALComposePhotosView.m */; };
+		351133961C3978D100C8CD8D /* ALComposeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 351133951C3978D100C8CD8D /* ALComposeTool.m */; };
+		351133991C39798800C8CD8D /* ALComposeParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 351133981C39798800C8CD8D /* ALComposeParam.m */; };
 		35128E8F1C05B00B001364DB /* ALAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 35128E8E1C05B00B001364DB /* ALAccount.m */; };
 		3516C78C1C049CBC007237B4 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3516C7211C049CBC007237B4 /* AFHTTPRequestOperation.m */; };
 		3516C78D1C049CBC007237B4 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3516C7231C049CBC007237B4 /* AFHTTPRequestOperationManager.m */; };
@@ -306,6 +309,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3511338F1C396F5800C8CD8D /* ALComposePhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALComposePhotosView.h; sourceTree = "<group>"; };
+		351133901C396F5800C8CD8D /* ALComposePhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALComposePhotosView.m; sourceTree = "<group>"; };
+		351133941C3978D100C8CD8D /* ALComposeTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALComposeTool.h; sourceTree = "<group>"; };
+		351133951C3978D100C8CD8D /* ALComposeTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALComposeTool.m; sourceTree = "<group>"; };
+		351133971C39798800C8CD8D /* ALComposeParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALComposeParam.h; sourceTree = "<group>"; };
+		351133981C39798800C8CD8D /* ALComposeParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALComposeParam.m; sourceTree = "<group>"; };
 		35128E8D1C05B00B001364DB /* ALAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAccount.h; sourceTree = "<group>"; };
 		35128E8E1C05B00B001364DB /* ALAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALAccount.m; sourceTree = "<group>"; };
 		3516C7201C049CBC007237B4 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -964,6 +973,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		351133921C3978A200C8CD8D /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				351133931C3978A200C8CD8D /* Param */,
+				351133941C3978D100C8CD8D /* ALComposeTool.h */,
+				351133951C3978D100C8CD8D /* ALComposeTool.m */,
+			);
+			path = Compose;
+			sourceTree = "<group>";
+		};
+		351133931C3978A200C8CD8D /* Param */ = {
+			isa = PBXGroup;
+			children = (
+				351133971C39798800C8CD8D /* ALComposeParam.h */,
+				351133981C39798800C8CD8D /* ALComposeParam.m */,
+			);
+			path = Param;
+			sourceTree = "<group>";
+		};
 		3516C71E1C049CBC007237B4 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
@@ -1585,6 +1613,8 @@
 				35F293C11C2F9BA5001B34BE /* ALTextView.m */,
 				35B3054F1C3012A5004269F3 /* ALComposeToolBar.h */,
 				35B305501C3012A5004269F3 /* ALComposeToolBar.m */,
+				3511338F1C396F5800C8CD8D /* ALComposePhotosView.h */,
+				351133901C396F5800C8CD8D /* ALComposePhotosView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2220,6 +2250,7 @@
 		35E70FE91C12BFEF002C5B90 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				351133921C3978A200C8CD8D /* Compose */,
 				3555B33B1C1EBB1D00ECDDAF /* Param */,
 				3555B3351C1EBABC00ECDDAF /* User */,
 				3541936E1C1D853700BF8B90 /* Status */,
@@ -2601,6 +2632,7 @@
 				35DA48681C2464D4008AB7D2 /* ALStatusCell.m in Sources */,
 				35DA48711C2465C6008AB7D2 /* ALStatusToolBar.m in Sources */,
 				3516C7B41C049CBD007237B4 /* SDWebImageDownloader.m in Sources */,
+				351133911C396F5800C8CD8D /* ALComposePhotosView.m in Sources */,
 				3516C79B1C049CBC007237B4 /* MJType.m in Sources */,
 				35C79C861BFF035F00C7A8E7 /* ALMessageViewController.m in Sources */,
 				3516C7BB1C049CBD007237B4 /* UIImage+WebP.m in Sources */,
@@ -2614,6 +2646,7 @@
 				355FDC551C01FDF8007132A3 /* ALNewFeatureCell.m in Sources */,
 				3516C79F1C049CBD007237B4 /* MJPhoto.m in Sources */,
 				35390F301BFC46B6006584F8 /* ALTabBarController.m in Sources */,
+				351133991C39798800C8CD8D /* ALComposeParam.m in Sources */,
 				356DD2921BFE1A0500C0294B /* ALPopMenu.m in Sources */,
 				35715E791BFCB78F0051914A /* ALTabBarButton.m in Sources */,
 				3516C7B21C049CBD007237B4 /* SDWebImageCompat.m in Sources */,
@@ -2628,6 +2661,7 @@
 				3516C7BE1C049CBD007237B4 /* UIView+WebCacheOperation.m in Sources */,
 				3516C7A61C049CBD007237B4 /* SDWebImageManager+MJ.m in Sources */,
 				3516C7A91C049CBD007237B4 /* MJRefreshConst.m in Sources */,
+				351133961C3978D100C8CD8D /* ALComposeTool.m in Sources */,
 				35C9FBBD1C17078800144BF3 /* ALRootTool.m in Sources */,
 				3516C78D1C049CBC007237B4 /* AFHTTPRequestOperationManager.m in Sources */,
 				3555B33A1C1EBADB00ECDDAF /* ALUserParam.m in Sources */,

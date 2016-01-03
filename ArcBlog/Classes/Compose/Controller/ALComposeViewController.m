@@ -9,11 +9,16 @@
 #import "ALComposeViewController.h"
 #import "ALTextView.h"
 #import "ALComposeToolBar.h"
+#import "ALComposePhotosView.h"
+#import "ALComposeTool.h"
+#import "MBProgressHUD+MJ.h"
 
-@interface ALComposeViewController ()<UITextViewDelegate>
+@interface ALComposeViewController ()<UITextViewDelegate,ALComposeToolBarDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 @property (nonatomic,weak) ALTextView *textView;
 @property (nonatomic,weak) ALComposeToolBar *toolBar;
+@property (nonatomic,weak) ALComposePhotosView *photosView;
+@property (nonatomic,strong) UIBarButtonItem *rightItem;
 
 @end
 
@@ -35,8 +40,18 @@
     
     // 监听键盘的弹出
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardFrameChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
+
+    // 添加相册视图
+    [self setUpPhotosView];
 }
 
+- (void)setUpPhotosView
+{
+    ALComposePhotosView *photosView = [[ALComposePhotosView alloc] initWithFrame:CGRectMake(0, 70, self.view.width, self.view.height - 70)];
+    _photosView = photosView;
+    
+    [_textView addSubview:photosView];
+}
 
 #pragma mark - 键盘的frame改变的时候调用
 - (void)keyboardFrameChange:(NSNotification *)note
@@ -63,7 +78,38 @@
     CGFloat y = self.view.height - h;
     ALComposeToolBar *toolBar = [[ALComposeToolBar alloc] initWithFrame:CGRectMake(0, y, self.view.width, h)];
     _toolBar = toolBar;
+    toolBar.delegate = self;
     [self.view addSubview:toolBar];
+}
+
+#pragma mark - 点击工具条 按钮的时候调用
+- (void)composeToolBar:(ALComposeToolBar *)toolBar didClickBtn:(NSInteger)index
+{
+    if (index == 0) { // 点击相册
+        // 弹出系统的相册
+        UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+        
+        
+        // 设置相册类型，相册集
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+        
+        imagePicker.delegate = self;
+        
+        [self presentViewController:imagePicker animated:YES completion:nil];
+    }
+}
+
+#pragma mark = 选择照片完成的时候调用
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    // 获取选中的图片
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    
+    _photosView.image = image;
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    _rightItem.enabled = YES;
 }
 
 #pragma mark - 添加textView
@@ -99,8 +145,10 @@
     // 判断下textView有没有内容
     if (_textView.text.length) { // 有内容
         _textView.hidePlaceHolder = YES;
+        _rightItem.enabled = YES;
     }else{
         _textView.hidePlaceHolder = NO;
+        _rightItem.enabled = NO;
     }
 }
 
@@ -131,16 +179,30 @@
     [btn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
     [btn sizeToFit]; // 自动调整尺寸和位置（frame）
     
+    // 监听按钮的点击
+    [btn addTarget:self action:@selector(compose) forControlEvents:UIControlEventTouchUpInside];
+    
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
     rightItem.enabled = NO;
     self.navigationItem.rightBarButtonItem = rightItem;
+    _rightItem = rightItem;
     
 }
 
 // 发送微博
 - (void)compose
 {
-    
+    // 发送文字
+    [ALComposeTool composeWithStatus:_textView.text success:^{
+        
+        // 用户发送成功
+        [MBProgressHUD showSuccess:@"发送成功"];
+        // 回到首页
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+    } failure:^(NSError *error) {
+
+    }];
 }
 - (void)dismiss
 {

@@ -96,7 +96,6 @@
     _originalView.statusF = statusF;
     
     if (statusF.status.retweeted_status) {
-        
         // 设置转发微博frame
         _retweetView.frame = statusF.retweetViewFrame;
         _retweetView.statusF = statusF;

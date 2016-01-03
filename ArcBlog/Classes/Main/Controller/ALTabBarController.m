@@ -25,6 +25,8 @@
 
 @property (nonatomic,weak) ALMessageViewController *message;
 
+@property (nonatomic,weak) ALDiscoverViewController *discover;
+
 @property (nonatomic,weak) ALProfileViewController *profile;
 
 @end
@@ -177,7 +179,7 @@
     // 发现
     ALDiscoverViewController *discover = [[ALDiscoverViewController alloc] init];
     [self setUpOneChildViewController:discover image:[UIImage imageNamed:@"tabbar_discover"] selectedImage:[UIImage imageWithOriginalName:@"tabbar_discover_selected"] title:@"发现"];
-    
+    _discover = discover;
     
     // 我
     ALProfileViewController *profile = [[ALProfileViewController alloc] init];

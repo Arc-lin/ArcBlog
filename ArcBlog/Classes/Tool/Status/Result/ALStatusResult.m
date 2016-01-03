@@ -7,8 +7,8 @@
 //
 
 #import "ALStatusResult.h"
-
 #import "ALStatus.h"
+
 @implementation ALStatusResult
 
 + (NSDictionary *)objectClassInArray{

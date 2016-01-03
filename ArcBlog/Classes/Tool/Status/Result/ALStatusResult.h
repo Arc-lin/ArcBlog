@@ -16,7 +16,7 @@
  */
 @property (nonatomic,strong) NSArray *statuses;
 /**
- *  用户最近微博总数
+ *  用户最新微博总数
  */
 @property (nonatomic,assign) int total_number;
 
