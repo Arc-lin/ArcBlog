@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		350AAEB51C3B81220084B147 /* ALUploadParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 350AAEB41C3B81220084B147 /* ALUploadParam.m */; };
 		351133911C396F5800C8CD8D /* ALComposePhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 351133901C396F5800C8CD8D /* ALComposePhotosView.m */; };
 		351133961C3978D100C8CD8D /* ALComposeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 351133951C3978D100C8CD8D /* ALComposeTool.m */; };
 		351133991C39798800C8CD8D /* ALComposeParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 351133981C39798800C8CD8D /* ALComposeParam.m */; };
@@ -309,6 +310,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		350AAEB31C3B81220084B147 /* ALUploadParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALUploadParam.h; sourceTree = "<group>"; };
+		350AAEB41C3B81220084B147 /* ALUploadParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALUploadParam.m; sourceTree = "<group>"; };
 		3511338F1C396F5800C8CD8D /* ALComposePhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALComposePhotosView.h; sourceTree = "<group>"; };
 		351133901C396F5800C8CD8D /* ALComposePhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALComposePhotosView.m; sourceTree = "<group>"; };
 		351133941C3978D100C8CD8D /* ALComposeTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALComposeTool.h; sourceTree = "<group>"; };
@@ -988,6 +991,8 @@
 			children = (
 				351133971C39798800C8CD8D /* ALComposeParam.h */,
 				351133981C39798800C8CD8D /* ALComposeParam.m */,
+				350AAEB31C3B81220084B147 /* ALUploadParam.h */,
+				350AAEB41C3B81220084B147 /* ALUploadParam.m */,
 			);
 			path = Param;
 			sourceTree = "<group>";
@@ -2680,6 +2685,7 @@
 				3516C7AF1C049CBD007237B4 /* MKAnnotationView+WebCache.m in Sources */,
 				3516C7981C049CBC007237B4 /* MJConst.m in Sources */,
 				3516C7A81C049CBD007237B4 /* MJRefreshBaseView.m in Sources */,
+				350AAEB51C3B81220084B147 /* ALUploadParam.m in Sources */,
 				3555B3411C1EBDDE00ECDDAF /* ALUserResult.m in Sources */,
 				3516C7B51C049CBD007237B4 /* SDWebImageDownloaderOperation.m in Sources */,
 				3516C7B01C049CBD007237B4 /* NSData+ImageContentType.m in Sources */,

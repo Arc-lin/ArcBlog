@@ -20,16 +20,16 @@
     // 2. 获取上一次的版本号
     NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:ALVersionKey];
     
-    // 3.判断当前是否有新的版本
-    if ([currentVersion isEqualToString:lastVersion]) {     // 没有最新的版本号
-        
-        // 创建tabBarVc
-        ALTabBarController *tabBarVc = [[ALTabBarController alloc] init];
-        
-        // 设置窗口的根控制器
-        window.rootViewController = tabBarVc;
-    }else{      // 有最新的版本号
-        
+//    // 3.判断当前是否有新的版本
+//    if ([currentVersion isEqualToString:lastVersion]) {     // 没有最新的版本号
+//        
+//        // 创建tabBarVc
+//        ALTabBarController *tabBarVc = [[ALTabBarController alloc] init];
+//        
+//        // 设置窗口的根控制器
+//        window.rootViewController = tabBarVc;
+//    }else{      // 有最新的版本号
+    
         // 进入新特性界面
         ALNewFeatureController *vc = [[ALNewFeatureController alloc] init];
         
@@ -37,7 +37,7 @@
         
         // 保持当前的版本，使用偏好设置
         [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:ALVersionKey];
-    }
+//    }
     
     
 }

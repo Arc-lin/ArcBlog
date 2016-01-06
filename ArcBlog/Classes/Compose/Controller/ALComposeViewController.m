@@ -20,9 +20,19 @@
 @property (nonatomic,weak) ALComposePhotosView *photosView;
 @property (nonatomic,strong) UIBarButtonItem *rightItem;
 
+@property (nonatomic,strong) NSMutableArray *images;
+
 @end
 
 @implementation ALComposeViewController
+
+- (NSMutableArray *)images
+{
+    if (_images == nil) {
+        _images = [NSMutableArray array];
+    }
+    return _images;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -89,7 +99,6 @@
         // 弹出系统的相册
         UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
         
-        
         // 设置相册类型，相册集
         imagePicker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
         
@@ -105,6 +114,7 @@
     // 获取选中的图片
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     
+    [self.images addObject:image];
     _photosView.image = image;
     
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -183,7 +193,7 @@
     [btn addTarget:self action:@selector(compose) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
-    rightItem.enabled = NO;
+    rightItem.enabled = YES;
     self.navigationItem.rightBarButtonItem = rightItem;
     _rightItem = rightItem;
     
@@ -192,18 +202,59 @@
 // 发送微博
 - (void)compose
 {
-    // 发送文字
+    // 新浪上传： 文字不能为空，分享图片
+    // 二进制数据不能拼接url的参数，只能使用formdata
+    // 判断下有没有图片
+    if (self.images.count) {
+        // 发送图片
+        [self sendPicture];
+    }else{
+        // 发送文字
+        [self sendTitle];
+    }
+  
+}
+
+#pragma mark - 发送图片
+- (void)sendPicture
+{
+    UIImage *image = self.images[0];
+    
+    NSString *status = _textView.text.length?_textView.text:@"分享图片";
+    
+    _rightItem.enabled = YES;
+    // 我引用你，你引用我
+    [ALComposeTool composeWithStatus:status image:image success:^{
+        // 提示用户发送成功
+        [MBProgressHUD showSuccess:@"发送图片成功"];
+        // 回到首页
+        [self dismissViewControllerAnimated:YES completion:nil];
+        _rightItem.enabled = YES;
+        
+    } failure:^(NSError *error) {
+        
+        NSLog(@"%@",error.description);
+        [MBProgressHUD showSuccess:@"发送图片失败"];
+        _rightItem.enabled = YES;
+        
+    }];
+}
+
+#pragma mark - 发送文字
+- (void)sendTitle
+{
     [ALComposeTool composeWithStatus:_textView.text success:^{
         
-        // 用户发送成功
+        // 提示用户发送成功
         [MBProgressHUD showSuccess:@"发送成功"];
         // 回到首页
         [self dismissViewControllerAnimated:YES completion:nil];
         
     } failure:^(NSError *error) {
-
+        NSLog(@"%@",error);
     }];
 }
+
 - (void)dismiss
 {
     // 退出
