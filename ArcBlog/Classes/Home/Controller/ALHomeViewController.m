@@ -21,7 +21,7 @@
 #import "ALAccountTool.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "MJExtension.h"
-#import "UIImageView+WebCache.h"
+//#import "UIImageView+WebCache.h"
 #import "MJRefresh.h"
 #import "ALHttpTool.h"
 #import "ALStatusTool.h"

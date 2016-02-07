@@ -8,7 +8,7 @@
 
 #import "ALPhotosView.h"
 #import "ALPhoto.h"
-#import "UIImageView+WebCache.h"
+//#import "UIImageView+WebCache.h"
 #import "MJPhotoBrowser.h"
 #import "MJPhoto.h"
 #import "ALPhotoView.h"

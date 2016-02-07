@@ -97,6 +97,13 @@
 		3593434C1C2E5D5E00D238E9 /* ALComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3593434B1C2E5D5E00D238E9 /* ALComposeViewController.m */; };
 		359A2BB91C0345F1000A21A2 /* ALOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 359A2BB81C0345F1000A21A2 /* ALOAuthViewController.m */; };
 		35A610241C2A4BCD00330E25 /* ALPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A610231C2A4BCD00330E25 /* ALPhotosView.m */; };
+		35AA343A1C65C9290071AE4F /* ALStatusCacheTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AA34391C65C9290071AE4F /* ALStatusCacheTool.m */; };
+		35AA34571C65D25E0071AE4F /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AA34481C65D25E0071AE4F /* FMDatabase.m */; };
+		35AA34581C65D25E0071AE4F /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AA344A1C65D25E0071AE4F /* FMDatabaseAdditions.m */; };
+		35AA34591C65D25E0071AE4F /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AA344C1C65D25E0071AE4F /* FMDatabasePool.m */; };
+		35AA345A1C65D25E0071AE4F /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AA344E1C65D25E0071AE4F /* FMDatabaseQueue.m */; };
+		35AA345B1C65D25E0071AE4F /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AA34511C65D25E0071AE4F /* FMResultSet.m */; };
+		35AA345D1C65D2830071AE4F /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 35AA345C1C65D2830071AE4F /* libsqlite3.0.tbd */; };
 		35AD0F231C2816F8005D723D /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 35AD0B251C27F40C005D723D /* icon.png */; };
 		35AD0F241C2816F8005D723D /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35AD0B261C27F40C005D723D /* icon@2x.png */; };
 		35AD0F251C2816F8005D723D /* icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35AD0B271C27F40C005D723D /* icon@3x.png */; };
@@ -504,6 +511,20 @@
 		359A2BB81C0345F1000A21A2 /* ALOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALOAuthViewController.m; sourceTree = "<group>"; };
 		35A610221C2A4BCD00330E25 /* ALPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPhotosView.h; sourceTree = "<group>"; };
 		35A610231C2A4BCD00330E25 /* ALPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPhotosView.m; sourceTree = "<group>"; };
+		35AA34381C65C9290071AE4F /* ALStatusCacheTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALStatusCacheTool.h; sourceTree = "<group>"; };
+		35AA34391C65C9290071AE4F /* ALStatusCacheTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALStatusCacheTool.m; sourceTree = "<group>"; };
+		35AA34471C65D25E0071AE4F /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		35AA34481C65D25E0071AE4F /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		35AA34491C65D25E0071AE4F /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		35AA344A1C65D25E0071AE4F /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		35AA344B1C65D25E0071AE4F /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		35AA344C1C65D25E0071AE4F /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		35AA344D1C65D25E0071AE4F /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		35AA344E1C65D25E0071AE4F /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		35AA344F1C65D25E0071AE4F /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		35AA34501C65D25E0071AE4F /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		35AA34511C65D25E0071AE4F /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		35AA345C1C65D2830071AE4F /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		35AD0B251C27F40C005D723D /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		35AD0B261C27F40C005D723D /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		35AD0B271C27F40C005D723D /* icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@3x.png"; sourceTree = "<group>"; };
@@ -955,6 +976,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35AA345D1C65D2830071AE4F /* libsqlite3.0.tbd in Frameworks */,
 				35AD960A1C22DDC200D66A2D /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1000,6 +1022,7 @@
 		3516C71E1C049CBC007237B4 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				35AA343B1C65D25E0071AE4F /* fmdb */,
 				3516C71F1C049CBC007237B4 /* AFNetworking */,
 				3516C7331C049CBC007237B4 /* MBProgressHUD */,
 				3516C7391C049CBC007237B4 /* MJExtension */,
@@ -1158,6 +1181,7 @@
 		352A3EB01BFA2C370013ED3F = {
 			isa = PBXGroup;
 			children = (
+				35AA345C1C65D2830071AE4F /* libsqlite3.0.tbd */,
 				35AD96091C22DDC200D66A2D /* AVFoundation.framework */,
 				352A3EBB1BFA2C370013ED3F /* ArcBlog */,
 				352A3ED81BFA2C370013ED3F /* ArcBlogTests */,
@@ -1463,6 +1487,8 @@
 				354193731C1DA84600BF8B90 /* Result */,
 				3541936F1C1D854900BF8B90 /* ALStatusTool.h */,
 				354193701C1D854900BF8B90 /* ALStatusTool.m */,
+				35AA34381C65C9290071AE4F /* ALStatusCacheTool.h */,
+				35AA34391C65C9290071AE4F /* ALStatusCacheTool.m */,
 			);
 			path = Status;
 			sourceTree = "<group>";
@@ -1657,6 +1683,24 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		35AA343B1C65D25E0071AE4F /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				35AA34471C65D25E0071AE4F /* FMDatabase.h */,
+				35AA34481C65D25E0071AE4F /* FMDatabase.m */,
+				35AA34491C65D25E0071AE4F /* FMDatabaseAdditions.h */,
+				35AA344A1C65D25E0071AE4F /* FMDatabaseAdditions.m */,
+				35AA344B1C65D25E0071AE4F /* FMDatabasePool.h */,
+				35AA344C1C65D25E0071AE4F /* FMDatabasePool.m */,
+				35AA344D1C65D25E0071AE4F /* FMDatabaseQueue.h */,
+				35AA344E1C65D25E0071AE4F /* FMDatabaseQueue.m */,
+				35AA344F1C65D25E0071AE4F /* FMDB.h */,
+				35AA34501C65D25E0071AE4F /* FMResultSet.h */,
+				35AA34511C65D25E0071AE4F /* FMResultSet.m */,
+			);
+			path = fmdb;
 			sourceTree = "<group>";
 		};
 		35AD0B231C27F40C005D723D /* image */ = {
@@ -2617,8 +2661,10 @@
 				3555B3341C1EB5AE00ECDDAF /* ALAccountParam.m in Sources */,
 				35A610241C2A4BCD00330E25 /* ALPhotosView.m in Sources */,
 				3516C7B71C049CBD007237B4 /* SDWebImagePrefetcher.m in Sources */,
+				35AA34581C65D25E0071AE4F /* FMDatabaseAdditions.m in Sources */,
 				354193761C1DA85D00BF8B90 /* ALStatusParam.m in Sources */,
 				35C79C891BFF065600C7A8E7 /* ALProfileViewController.m in Sources */,
+				35AA34571C65D25E0071AE4F /* FMDatabase.m in Sources */,
 				35E70FED1C12C008002C5B90 /* ALAccountTool.m in Sources */,
 				3516C7AB1C049CBD007237B4 /* MJRefreshHeaderView.m in Sources */,
 				3516C79D1C049CBC007237B4 /* NSObject+MJIvar.m in Sources */,
@@ -2632,6 +2678,7 @@
 				3516C7B81C049CBD007237B4 /* UIButton+WebCache.m in Sources */,
 				3516C7AD1C049CBD007237B4 /* UIScrollView+MJRefresh.m in Sources */,
 				3516C7BD1C049CBD007237B4 /* UIImageView+WebCache.m in Sources */,
+				35AA345B1C65D25E0071AE4F /* FMResultSet.m in Sources */,
 				35715E7F1BFCBB070051914A /* UIView+Frame.m in Sources */,
 				3516C78F1C049CBC007237B4 /* AFNetworkReachabilityManager.m in Sources */,
 				35DA48681C2464D4008AB7D2 /* ALStatusCell.m in Sources */,
@@ -2658,6 +2705,8 @@
 				35F293C21C2F9BA5001B34BE /* ALTextView.m in Sources */,
 				356DD27C1BFDC1EF00C0294B /* ALNavigationController.m in Sources */,
 				3516C7A41C049CBD007237B4 /* MJPhotoToolbar.m in Sources */,
+				35AA345A1C65D25E0071AE4F /* FMDatabaseQueue.m in Sources */,
+				35AA34591C65D25E0071AE4F /* FMDatabasePool.m in Sources */,
 				35390F341BFC46B6006584F8 /* main.m in Sources */,
 				352A3ECA1BFA2C370013ED3F /* ArcBlog.xcdatamodeld in Sources */,
 				3516C7901C049CBC007237B4 /* AFSecurityPolicy.m in Sources */,
@@ -2683,6 +2732,7 @@
 				3516C7B11C049CBD007237B4 /* SDImageCache.m in Sources */,
 				3516C7931C049CBC007237B4 /* AFURLResponseSerialization.m in Sources */,
 				3516C7AF1C049CBD007237B4 /* MKAnnotationView+WebCache.m in Sources */,
+				35AA343A1C65C9290071AE4F /* ALStatusCacheTool.m in Sources */,
 				3516C7981C049CBC007237B4 /* MJConst.m in Sources */,
 				3516C7A81C049CBD007237B4 /* MJRefreshBaseView.m in Sources */,
 				350AAEB51C3B81220084B147 /* ALUploadParam.m in Sources */,
